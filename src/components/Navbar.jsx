@@ -1,7 +1,46 @@
 import React, { useState } from "react";
 
+const NavbarItem = ({ link, text }) => {
+  return (
+    <li>
+      <a className="text-sm p-2" href={link}>
+        {text}
+      </a>
+    </li>
+  );
+};
+
+const MobileNavbarItem = ({ link, text }) => {
+  return (
+    <li className="mb-1">
+      <a
+        className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
+        href={link}
+      >
+        {text}
+      </a>
+    </li>
+  );
+};
+
+const menuItems = [
+  { link: "/", text: "Home" },
+  { link: "/invoices", text: "Invoices" },
+  { link: "/companies", text: "Companies" },
+  { link: "/contacts", text: "Contact" },
+];
+
+const renderedMenuItems = menuItems.map((item, index) => (
+  <NavbarItem key={index} link={item.link} text={item.text} />
+));
+
+const renderedMobileMenuItems = menuItems.map((item, index) => (
+  <MobileNavbarItem key={index} link={item.link} text={item.text} />
+));
+
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
@@ -27,26 +66,7 @@ export const Navbar = () => {
             </svg>
           </button>
           <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6 font-semibold">
-            <li>
-              <a className="text-sm border border-black p-2" href="#">
-                Home
-              </a>
-            </li>
-            <li>
-              <a className="text-sm p-2" href={`/invoices`}>
-                Invoices
-              </a>
-            </li>
-            <li>
-              <a className="text-sm p-2" href="#">
-                Companies
-              </a>
-            </li>
-            <li>
-              <a className="text-sm p-2" href="#">
-                Contact
-              </a>
-            </li>
+            {renderedMenuItems}
           </ul>
         </div>
         <a
@@ -86,40 +106,7 @@ export const Navbar = () => {
               </svg>
             </button>
           </div>
-          <ul>
-            <li className="mb-1">
-              <a
-                className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
-                href="#"
-              >
-                Home
-              </a>
-            </li>
-            <li className="mb-1">
-              <a
-                className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
-                href="#"
-              >
-                Invoices
-              </a>
-            </li>
-            <li className="mb-1">
-              <a
-                className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
-                href="#"
-              >
-                Companies
-              </a>
-            </li>
-            <li className="mb-1">
-              <a
-                className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
-                href="#"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
+          <ul>{renderedMobileMenuItems}</ul>
           <div className="mt-auto">
             <div className="pt-6">
               <a
