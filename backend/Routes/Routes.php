@@ -5,6 +5,7 @@ namespace App\Routes;
 use Bramus\Router\Router;
 use App\Controllers\HomeController;
 
+
 $router = new Router();
 
 $router->get('/', function() {
@@ -12,4 +13,3 @@ $router->get('/', function() {
 });
 
 $router->run();
-

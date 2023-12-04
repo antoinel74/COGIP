@@ -1,10 +1,10 @@
 <?php
 
-require __DIR__ . '/backend/vendor/autoload.php';
+require __DIR__ . '/../vendor/autoload.php';
 
 use App\Core\Database;
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/backend');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
 $dotenv->load();
 
 $db = new Database();
