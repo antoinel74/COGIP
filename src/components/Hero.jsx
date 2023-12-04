@@ -12,7 +12,7 @@ const Hero = ({ text, img, yellowBg }) => {
           {text}
         </h2>
       </div>
-      <div className="w-1/2 p-4">
+      <div className="w-1/2 p-4 bg-[url('/rectangle.png')] bg-contain bg-bottom bg-no-repeat">
         <img src={img} alt="vector-img" className="w-full h-auto" />
       </div>
     </div>
