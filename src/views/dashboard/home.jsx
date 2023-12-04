@@ -1,5 +1,6 @@
 import React from "react";
+import { Table } from "../../components/Table";
 
 export const Home = () => {
-  return <div>Home</div>;
+  return <div><Table></Table></div>;
 };
