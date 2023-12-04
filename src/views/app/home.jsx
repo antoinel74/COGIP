@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "../../components/Hero";
 import { Divider } from "../../components/Divider";
+import { Table } from "../../components/Table";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ INVOICES EASLY"
         yellowBg={true}
       />
       <Divider />
+      <Table />
       <Hero
         text="WORK BETTER 
 IN YOUR
