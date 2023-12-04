@@ -8,14 +8,14 @@ export const Navbar = () => {
 
   return (
     <div>
-      <nav className="relative justify-between px-6 py-3 flex items-center bg-yellow-400">
+      <nav className="relative justify-between px-6 py-4 flex items-center bg-[#f9de4e]">
         <div className="flex items-center w-full lg:w-auto">
-          <a className="text-3xl font-bold leading-none mr-6" href="#">
+          <a className="text-3xl font-bold leading-none mr-6 lg:mr-20" href="#">
             COGIP
           </a>
           <div className="lg:hidden">
             <button
-              className="navbar-burger flex items-center text-black bg-transparent p-3"
+              className="navbar-burger flex items-center text-black bg-transparent p-2"
               onClick={toggleMenu}
             >
               <svg
@@ -28,40 +28,40 @@ export const Navbar = () => {
               </svg>
             </button>
           </div>
-          <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+          <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6 font-semibold">
             <li>
-              <a className="text-sm" href="#">
+              <a className="text-sm border border-black p-2" href="#">
                 Home
               </a>
             </li>
             <li>
-              <a className="text-sm" href="#">
+              <a className="text-sm p-2" href="#">
                 Invoices
               </a>
             </li>
             <li>
-              <a className="text-sm" href="#">
+              <a className="text-sm p-2" href="#">
                 Companies
               </a>
             </li>
             <li>
-              <a className="text-sm" href="#">
+              <a className="text-sm p-2" href="#">
                 Contact
               </a>
             </li>
           </ul>
         </div>
         <a
-          className="hidden lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 rounded-xl transition duration-200"
-          href="#"
-        >
-          Sign In
-        </a>
-        <a
-          className="hidden lg:inline-block py-2 px-6 text-sm transition duration-200"
+          className="hidden font-semibold lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 rounded-xl transition duration-200"
           href="#"
         >
           Sign up
+        </a>
+        <a
+          className="hidden lg:inline-block py-2 px-6 text-sm transition duration-200 font-semibold"
+          href="#"
+        >
+          Login
         </a>
       </nav>
       <div
@@ -135,10 +135,10 @@ export const Navbar = () => {
                 className="block mb-3 p-3 leading-loose text-xs text-center font-semibold leading-none hover:bg-gray-100 rounded-xl"
                 href="#"
               >
-                Sign in
+                Sign up
               </a>
               <a
-                className="block mb-3 p-2 leading-loose text-xs text-center font-semibold bg-yellow-400 hover:bg-yellow-200 rounded-xl"
+                className="block mb-3 p-2 leading-loose text-xs text-center font-semibold bg-[#f9de4e] hover:bg-yellow-200 rounded-xl"
                 href="#"
               >
                 Login
