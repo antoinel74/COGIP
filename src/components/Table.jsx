@@ -10,7 +10,7 @@ export const Table = () => {
       {/* table style log out */}
       <div className="overflow-x-auto max-w-6xl mx-auto flex flex-col">
         <table className="min-w-full table-fixed">
-          <thead className="bg-yellow-400">
+          <thead className="bg-[#f9de4e]">
             <tr>
               <th
                 scope="col"

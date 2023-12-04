@@ -8,7 +8,7 @@ const Hero = ({ text, img, yellowBg }) => {
   return (
     <div className={containerClass}>
       <div className="w-1/2 p-4">
-        <h2 className="text-1xl md:text-4xl lg:text-6xl px-6 font-bold">
+        <h2 className="text-1xl md:text-4xl lg:text-6xl pl-12 font-bold">
           {text}
         </h2>
       </div>
