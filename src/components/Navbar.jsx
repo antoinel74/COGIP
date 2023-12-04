@@ -8,9 +8,9 @@ export const Navbar = () => {
 
   return (
     <div>
-      <nav className="relative justify-between px-6 py-4 flex items-center bg-yellow-400">
+      <nav className="relative justify-between px-6 py-3 flex items-center bg-yellow-400">
         <div className="flex items-center w-full lg:w-auto">
-          <a className="text-3xl font-bold leading-none mr-8" href="#">
+          <a className="text-3xl font-bold leading-none mr-6" href="#">
             COGIP
           </a>
           <div className="lg:hidden">
@@ -19,7 +19,7 @@ export const Navbar = () => {
               onClick={toggleMenu}
             >
               <svg
-                className="block h-4 w-4 fill-current"
+                className="block h-5 w-5 fill-current"
                 viewBox="0 0 20 20"
                 xmlns="http://www.w3.org/2000/svg"
                 onClick={toggleMenu}
@@ -70,7 +70,7 @@ export const Navbar = () => {
         } navbar-menu relative z-50`}
       >
         <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-        <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+        <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-4 px-6 bg-white border-r overflow-y-auto">
           <div className="flex items-center mb-8">
             <a className="mr-auto text-3xl font-bold leading-none" href="#">
               COGIP
