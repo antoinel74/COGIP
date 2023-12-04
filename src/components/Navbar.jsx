@@ -9,7 +9,7 @@ export const Navbar = () => {
   return (
     <div>
       <nav className="relative justify-between px-6 py-4 flex items-center bg-yellow-400">
-        <div className="flex items-center justify-between w-full lg:w-auto">
+        <div className="flex items-center w-full lg:w-auto">
           <a className="text-3xl font-bold leading-none mr-8" href="#">
             COGIP
           </a>
