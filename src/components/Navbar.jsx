@@ -55,13 +55,13 @@ export const Navbar = () => {
           className="hidden font-semibold lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 rounded-xl transition duration-200"
           href="#"
         >
-          Sign In
+          Sign up
         </a>
         <a
           className="hidden lg:inline-block py-2 px-6 text-sm transition duration-200 font-semibold"
           href="#"
         >
-          Sign up
+          Login
         </a>
       </nav>
       <div
@@ -135,7 +135,7 @@ export const Navbar = () => {
                 className="block mb-3 p-3 leading-loose text-xs text-center font-semibold leading-none hover:bg-gray-100 rounded-xl"
                 href="#"
               >
-                Sign in
+                Sign up
               </a>
               <a
                 className="block mb-3 p-2 leading-loose text-xs text-center font-semibold bg-[#f9de4e] hover:bg-yellow-200 rounded-xl"

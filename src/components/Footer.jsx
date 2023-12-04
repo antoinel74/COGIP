@@ -68,6 +68,23 @@ export const Footer = () => {
         </div>
       </div>
       <span className="border-t block border-solid border-gray-200 w-full mt-24"></span>
+      <div className="w-full flex justify-between opacity-40">
+        <ul className="flex gap-4 uppercase py-4">
+          <li>
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a href="#">Invoices</a>
+          </li>
+          <li>
+            <a href="#">Company</a>
+          </li>
+          <li>
+            <a href="#">Contact</a>
+          </li>
+        </ul>
+        <p className="mt-4">Copyright © 2023 • COGIP</p>
+      </div>
     </div>
   );
 };
