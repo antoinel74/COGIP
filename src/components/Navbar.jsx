@@ -13,21 +13,19 @@ export const Navbar = () => {
           <a className="text-3xl font-bold leading-none mr-6 lg:mr-20" href="#">
             COGIP
           </a>
-          <div className="lg:hidden">
-            <button
-              className="navbar-burger flex items-center text-black bg-transparent p-2"
+          <button
+            className="navbar-burger flex items-center text-black bg-transparent p-2 lg:hidden"
+            onClick={toggleMenu}
+          >
+            <svg
+              className="block h-5 w-5 fill-current"
+              viewBox="0 0 20 20"
+              xmlns="http://www.w3.org/2000/svg"
               onClick={toggleMenu}
             >
-              <svg
-                className="block h-5 w-5 fill-current"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-                onClick={toggleMenu}
-              >
-                <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
-              </svg>
-            </button>
-          </div>
+              <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
+            </svg>
+          </button>
           <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6 font-semibold">
             <li>
               <a className="text-sm border border-black p-2" href="#">
@@ -93,42 +91,40 @@ export const Navbar = () => {
               </svg>
             </button>
           </div>
-          <div>
-            <ul>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
-                  href="#"
-                >
-                  Home
-                </a>
-              </li>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
-                  href="#"
-                >
-                  Invoices
-                </a>
-              </li>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
-                  href="#"
-                >
-                  Companies
-                </a>
-              </li>
-              <li className="mb-1">
-                <a
-                  className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
-                  href="#"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
+          <ul>
+            <li className="mb-1">
+              <a
+                className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
+                href="#"
+              >
+                Home
+              </a>
+            </li>
+            <li className="mb-1">
+              <a
+                className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
+                href="#"
+              >
+                Invoices
+              </a>
+            </li>
+            <li className="mb-1">
+              <a
+                className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
+                href="#"
+              >
+                Companies
+              </a>
+            </li>
+            <li className="mb-1">
+              <a
+                className="block p-4 text-sm font-semibold text-gray-600 hover:bg-gray-100 hover:text-black rounded"
+                href="#"
+              >
+                Contact
+              </a>
+            </li>
+          </ul>
           <div className="mt-auto">
             <div className="pt-6">
               <a
