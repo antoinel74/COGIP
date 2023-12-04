@@ -33,7 +33,7 @@ export const Navbar = () => {
               </a>
             </li>
             <li>
-              <a className="text-sm p-2" href="#">
+              <a className="text-sm p-2" href={`/invoices`}>
                 Invoices
               </a>
             </li>

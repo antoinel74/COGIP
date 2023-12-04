@@ -4,11 +4,14 @@ import React from "react";
  *composants tables a l'état de squelette le style a utiliser pour les differentes pages logged out et logged in (ou autre manière de faire on verra bien) il faudra gérer les etats des composant en fonction de paramètre data, page ...
  * @returns différentes tables de données contacts, companies, invoices
  */
-export const Table = () => {
+export const Table = ({ title }) => {
   return (
     <>
       {/* table style log out */}
-      <div className="overflow-x-auto max-w-6xl mx-auto flex flex-col">
+      <div className="overflow-x-auto max-w-6xl flex mx-auto flex-col">
+        <div>
+          <h2 className="text-4xl w-full font-extrabold py-6">{title}</h2>
+        </div>
         <table className="min-w-full table-fixed">
           <thead className="bg-[#f9de4e]">
             <tr>

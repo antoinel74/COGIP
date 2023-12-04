@@ -5,7 +5,7 @@ import { Table } from "../../components/Table";
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-full">
       <Hero
         text="MANAGE YOUR
 CUSTOMERS AND 
@@ -14,7 +14,9 @@ INVOICES EASLY"
         yellowBg={true}
       />
       <Divider />
-      <Table />
+      <div className="mx-6">
+        <Table title="Last invoices" />
+      </div>
       <Hero
         text="WORK BETTER 
 IN YOUR
