@@ -5,7 +5,7 @@
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => 'e8b35a3b4a8ffb54942f80ec4aa1a13c6c362f37',
+        'reference' => '2bd204c1ab9dd083813a66bafaa5c8f1fd8efe0b',
         'name' => 'becode/base',
         'dev' => true,
     ),
@@ -16,7 +16,7 @@
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => 'e8b35a3b4a8ffb54942f80ec4aa1a13c6c362f37',
+            'reference' => '2bd204c1ab9dd083813a66bafaa5c8f1fd8efe0b',
             'dev_requirement' => false,
         ),
         'bramus/router' => array(
@@ -29,12 +29,12 @@
             'dev_requirement' => false,
         ),
         'filp/whoops' => array(
-            'pretty_version' => '2.14.5',
-            'version' => '2.14.5.0',
+            'pretty_version' => '2.15.4',
+            'version' => '2.15.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../filp/whoops',
             'aliases' => array(),
-            'reference' => 'a63e5e8f26ebbebf8ed3c5c691637325512eb0dc',
+            'reference' => 'a139776fa3f5985a50b509f2a02ff0f709d2a546',
             'dev_requirement' => false,
         ),
         'psr/log' => array(
