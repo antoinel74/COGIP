@@ -3,6 +3,7 @@ import Hero from "../../components/Hero";
 import { Divider } from "../../components/Divider";
 import { Table } from "../../components/Table";
 
+
 const Home = () => {
   return (
     <div className="w-full">
