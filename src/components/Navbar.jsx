@@ -8,14 +8,14 @@ export const Navbar = () => {
 
   return (
     <div>
-      <nav className="relative justify-between px-6 py-3 flex items-center bg-yellow-400">
+      <nav className="relative justify-between px-6 py-4 flex items-center bg-yellow-400">
         <div className="flex items-center w-full lg:w-auto">
-          <a className="text-3xl font-bold leading-none mr-6" href="#">
+          <a className="text-3xl font-bold leading-none mr-6 lg:mr-20" href="#">
             COGIP
           </a>
           <div className="lg:hidden">
             <button
-              className="navbar-burger flex items-center text-black bg-transparent p-3"
+              className="navbar-burger flex items-center text-black bg-transparent p-2"
               onClick={toggleMenu}
             >
               <svg
@@ -30,22 +30,22 @@ export const Navbar = () => {
           </div>
           <ul className="hidden lg:flex lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
             <li>
-              <a className="text-sm" href="#">
+              <a className="text-sm border border-black p-2" href="#">
                 Home
               </a>
             </li>
             <li>
-              <a className="text-sm" href="#">
+              <a className="text-sm p-2" href="#">
                 Invoices
               </a>
             </li>
             <li>
-              <a className="text-sm" href="#">
+              <a className="text-sm p-2" href="#">
                 Companies
               </a>
             </li>
             <li>
-              <a className="text-sm" href="#">
+              <a className="text-sm p-2" href="#">
                 Contact
               </a>
             </li>
