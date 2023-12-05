@@ -1,4 +1,5 @@
 import React from "react";
+import Avatar from "./Avatar";
 /**
  * Premier essai de carte pour les tableau du dashboard restructuration a voir le titre devra surement etre passer par le tableau la séparation également a retravailler
  *
@@ -6,98 +7,48 @@ import React from "react";
 export const Card = () => {
   return (
     <>
-    {/* premier essai premiere carte du dashboard */}
-        <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4">
-      {/* dynamic title component import */}
-      <h2>Titre</h2>
-      <span></span>
-      <div>
-        {/* table component import */}
-        <div className="max-w-lg overflow-x-auto flex flex-col">
-          <table className="min-w-full table-fixed">
-            <thead>
-              <tr>
-                <th
-                  scope="col"
-                  className="py-3 px-6 text-xs font-bold tracking-wider text-left text-gray-900 uppercase"
-                >
-                  name
-                </th>
-                <th
-                  scope="col"
-                  className="py-3 px-6 text-xs font-bold tracking-wider text-left text-gray-900 uppercase"
-                >
-                  phone
-                </th>
-                <th
-                  scope="col"
-                  className="py-3 px-6 text-xs font-bold tracking-wider text-left text-gray-900 uppercase"
-                >
-                  email
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jean jacque
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  0499 34 35 32
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jj-dubouchon@gmail.com
-                </td>
-              </tr>
-              <tr>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jean jacque
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  0499 34 35 32
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jj-dubouchon@gmail.com
-                </td>
-              </tr>
-              <tr>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jean jacque
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  0499 34 35 32
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jj-dubouchon@gmail.com
-                </td>
-              </tr>
-              <tr>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jean jacque
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  0499 34 35 32
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jj-dubouchon@gmail.com
-                </td>
-              </tr>
-              <tr>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jean jacque
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  0499 34 35 32
-                </td>
-                <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                  jj-dubouchon@gmail.com
-                </td>
-              </tr>
-            </tbody>
-          </table>
+      {/* card dahboard tables */}
+      <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4">
+        {/* dynamic title component import */}
+        <div>
+          <h2 className="text-lg w-full font-bold py-4 px-6">titre</h2>
+        </div>
+        <span className="border-t block border-solid border-black w-11/12 mb-4 mt-2"></span>
+        <div>
+          {/* table component import */}
         </div>
       </div>
-    </div>
+      {/* card dashboard pile */}
+      <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-8">
+        <div>
+          <h2 className="text-lg w-full font-bold py-4 px-6">titre</h2>
+        </div>
+        <div className="w-full flex gap-x-11 justify-center">
+          {/* import des composants piles */}
+        </div>
+      </div>
+      {/* card dashboard formulaire */}
+      <div className="max-w-6xl bg-white rounded-md flex flex-col justify-center items-start p-4">
+        {/* dynamic title component import */}
+        <div>
+          <h2 className="text-lg w-full font-bold py-4 px-6">titre</h2>
+        </div>
+        <span className="border-t block border-solid border-black w-11/12 mb-4 mt-2"></span>
+        <div>
+          {/* Form component import */}
+        </div>
+      </div>
+      {/* contact card */}
+      <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4">
+        {/* dynamic title component import */}
+        <div className="w-32 h-32">
+          <Avatar name="Henry George"></Avatar>
+        </div>
+        <div>
+          <p>Henry</p>
+          <p>George</p>
+        </div>
+      </div>
     </>
   );
 };

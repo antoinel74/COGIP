@@ -2,7 +2,7 @@ import React from "react";
 import Hero from "../../components/Hero";
 import { Divider } from "../../components/Divider";
 import { Table } from "../../components/Table";
-import { Card } from "../../components/Card";
+
 const Home = () => {
   return (
     <div className="w-full">
@@ -15,7 +15,6 @@ const Home = () => {
       <div className="mx-6">
         <Table title="Last invoices" />
       </div>
-      <Card></Card>
       <Hero
         text="WORK BETTER IN YOUR COMPANY"
         img="/img/manager-2.png"
