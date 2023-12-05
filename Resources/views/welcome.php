@@ -9,6 +9,7 @@
     <title>Cogip - Welcome</title>
 </head>
 <body>
+    <h1>welcome test</h1>
     <main>
        <section class="container">
         <img 
