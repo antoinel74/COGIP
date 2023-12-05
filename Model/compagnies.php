@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class compagnies
+class Compagnies
 {
     private $id_compagnies;
     private $name;
