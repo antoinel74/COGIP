@@ -2,6 +2,8 @@ import React from "react";
 import Hero from "../../components/Hero";
 import { Divider } from "../../components/Divider";
 import { Table } from "../../components/Table";
+import { List } from "../../components/List";
+import { Form } from "../../components/Form";
 
 const Home = () => {
   return (
@@ -20,6 +22,13 @@ const Home = () => {
         img="/img/manager-2.png"
         yellowBg={false}
       />
+      <List
+        name="Jean-Kriss"
+        tva="0918392"
+        country="Belgistan"
+        type="Supplier"
+      />
+      <Form />
     </div>
   );
 };
