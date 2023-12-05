@@ -3,7 +3,7 @@
     "description": "Projet - COGIP",
     "autoload": {
         "psr-4": {
-            "Basti\\Cogip\\": "src/"
+            "App\\": "./"
         }
     },
     "authors": [
@@ -13,6 +13,7 @@
         }
     ],
     "require": {
-        "filp/whoops": "^2.15"
+        "filp/whoops": "^2.15",
+        "bramus/router": "~1.6"
     }
 }

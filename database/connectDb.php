@@ -7,7 +7,7 @@ function connectDb()
 
 
     //Chemin vers le fichier .env
-    $envFile = __DIR__ . '/../.idea/.env';
+    $envFile = __DIR__ . '/../.env';
 
     // Charger les variables d'environnement depuis le fichier .env
     $envVariables = parse_ini_file($envFile);
