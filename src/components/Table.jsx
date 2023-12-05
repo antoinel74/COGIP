@@ -1,4 +1,5 @@
 import React from "react";
+import { Searchbar } from "./Searchbar";
 
 /**
  *composants tables a l'état de squelette le style a utiliser pour les differentes pages logged out et logged in (ou autre manière de faire on verra bien) il faudra gérer les etats des composant en fonction de paramètre data, page ...
@@ -12,6 +13,9 @@ export const Table = ({ title }) => {
         <div>
           <h2 className="text-4xl w-full font-extrabold py-6">{title}</h2>
         </div>
+        {/* Link Searchbar, switch case still to do */}
+        <Searchbar />
+        {/* Link Searchbar, switch case still to do */}
         <table className="min-w-full table-fixed">
           <thead className="bg-[#f9de4e]">
             <tr>
