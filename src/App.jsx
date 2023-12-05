@@ -1,13 +1,15 @@
 import Home from "./views/app/home";
+import { DashboardHome } from "./views/dashboard/DashboardHome";
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
 
 function App() {
   return (
     <>
-      <Navbar />
+      {/*       <Navbar />
       <Home />
-      <Footer />
+      <Footer /> */}
+      <DashboardHome />
     </>
   );
 }
