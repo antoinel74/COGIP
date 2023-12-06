@@ -60,12 +60,12 @@ export const Navbar = () => {
         >
           Sign up
         </a>
-        <a
+        <Link
+          to="dashboard"
           className="hidden lg:inline-block py-2 px-6 text-sm transition duration-200 font-semibold"
-          href="#"
         >
           Login
-        </a>
+        </Link>
       </nav>
 
       {/* MOBILE / SIDE BAR */}
@@ -104,12 +104,12 @@ export const Navbar = () => {
               >
                 Sign up
               </a>
-              <a
+              <Link
+                to="dashboard"
                 className="block mb-3 p-2 leading-loose text-xs text-center font-semibold bg-[#f9de4e] hover:bg-yellow-200 rounded-xl"
-                href="#"
               >
                 Login
-              </a>
+              </Link>
             </div>
             <p className="my-4 text-xs text-center">
               <span>by BibouTeam ❤️‍🔥</span>
