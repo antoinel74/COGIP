@@ -1,8 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
-import { Invoices } from "./views/app/invoices.jsx";
-import "./index.css";
+import "./style/index.css";
+import "./style/locomotive-scroll.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([
