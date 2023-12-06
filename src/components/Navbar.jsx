@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,9 +21,9 @@ export const Navbar = () => {
 
   const renderedMenuItems = menuItems.map((item, index) => (
     <li key={index}>
-      <a className={toggleStyles} href={item.link}>
+      <Link to={item.link} className={toggleStyles}>
         {item.text}
-      </a>
+      </Link>
     </li>
   ));
 
@@ -30,9 +31,12 @@ export const Navbar = () => {
     <div>
       <nav className="relative justify-between px-4 py-4 flex items-center bg-[#f9de4e]">
         <div className="flex items-center w-full lg:w-auto">
-          <a className="text-3xl font-bold leading-none mr-6 lg:mr-20" href="#">
+          <Link
+            to="/"
+            className="text-3xl font-bold leading-none mr-6 lg:mr-20"
+          >
             COGIP
-          </a>
+          </Link>
           <button
             className="navbar-burger flex items-center text-black bg-transparent p-2 lg:hidden"
             onClick={toggleMenu}
@@ -56,12 +60,12 @@ export const Navbar = () => {
         >
           Sign up
         </a>
-        <a
+        <Link
+          to="dashboard"
           className="hidden lg:inline-block py-2 px-6 text-sm transition duration-200 font-semibold"
-          href="#"
         >
           Login
-        </a>
+        </Link>
       </nav>
 
       {/* MOBILE / SIDE BAR */}
@@ -72,12 +76,12 @@ export const Navbar = () => {
       >
         <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-4 bg-white border-r overflow-y-auto">
           <div className="flex items-center mb-8">
-            <a
+            <Link
+              to="/"
               className="mr-auto text-3xl font-bold leading-none pl-4"
-              href="#"
             >
               COGIP
-            </a>
+            </Link>
             <button className="navbar-close" onClick={toggleMenu}>
               <svg
                 className="h-6 w-6 text-gray-400 cursor-pointer hover:text-gray-700"
@@ -100,12 +104,12 @@ export const Navbar = () => {
               >
                 Sign up
               </a>
-              <a
+              <Link
+                to="dashboard"
                 className="block mb-3 p-2 leading-loose text-xs text-center font-semibold bg-[#f9de4e] hover:bg-yellow-200 rounded-xl"
-                href="#"
               >
                 Login
-              </a>
+              </Link>
             </div>
             <p className="my-4 text-xs text-center">
               <span>by BibouTeam ❤️‍🔥</span>
