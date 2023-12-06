@@ -1,4 +1,5 @@
 import React from "react";
+import Avatar from "./Avatar";
 
 const NavbarItem = ({ link, text, icon }) => (
   <li className="mb-1">
@@ -14,7 +15,7 @@ const NavbarItem = ({ link, text, icon }) => (
 
 const ProfileSection = () => (
   <div className="flex flex-col items-center border-b border-gray-200 py-6 mb-8">
-    <img src="/.." alt="avatar" />
+    <Avatar name="Henry" />
     <h3 className="text-2xl py-4 text-center font-semibold hidden md:block">
       Henry Georges
     </h3>

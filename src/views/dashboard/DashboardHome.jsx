@@ -7,7 +7,7 @@ export const DashboardHome = () => {
   return (
     <div>
       <DashboardNav />
-      <DashboardHero name="Henry" url="Dashboard/" />;
+      <DashboardHero name="Henry" url="Dashboard/" />
       <Form />
     </div>
   );

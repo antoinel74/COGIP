@@ -7,7 +7,6 @@ const Dashboard = () => {
   return (
     <main>
       <DashboardNav />
-      <DashboardHero />
       <Outlet />
     </main>
   );
