@@ -37,7 +37,7 @@ export const Form = () => {
       <input
         type="submit"
         value="Save"
-        className="p-2 bg-[#9798d6] text-white font-semibold cursor-pointer rounded"
+        className="p-2 bg-[#9798d6] hover:opacity-70 text-white font-semibold cursor-pointer rounded"
       />
     </form>
   );
