@@ -28,7 +28,7 @@ export const Navbar = () => {
 
   return (
     <div>
-      <nav className="relative justify-between px-6 py-4 flex items-center bg-[#f9de4e]">
+      <nav className="relative justify-between px-4 py-4 flex items-center bg-[#f9de4e]">
         <div className="flex items-center w-full lg:w-auto">
           <a className="text-3xl font-bold leading-none mr-6 lg:mr-20" href="#">
             COGIP
@@ -73,7 +73,7 @@ export const Navbar = () => {
         <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-4 bg-white border-r overflow-y-auto">
           <div className="flex items-center mb-8">
             <a
-              className="mr-auto text-3xl font-bold leading-none pl-6"
+              className="mr-auto text-3xl font-bold leading-none pl-4"
               href="#"
             >
               COGIP
