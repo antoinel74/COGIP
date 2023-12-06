@@ -11,8 +11,8 @@ const Hero = ({ text, img, yellowBg }) => {
 
     /* Animations */
     if (textElement && imgElement) {
-      gsap.set([textElement], { opacity: 0, x: 40 });
-      gsap.set([imgElement], { opacity: 0, x: -40, scale: 0.9 });
+      gsap.set([textRef.current], { opacity: 0, x: 40 });
+      gsap.set([imgRef.current], { opacity: 0, x: -40, scale: 0.9 });
 
       const t1 = gsap.timeline({
         defaults: { duration: 2, ease: "power2.out" },
