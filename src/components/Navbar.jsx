@@ -14,7 +14,7 @@ const MobileNavbarItem = ({ link, text }) => {
   return (
     <li className="mb-1 hover:border-r-4 border-[#f9de4e]">
       <a
-        className="flex items-center py-4 pl-2 hover:bg-gray-100 hover:rounded"
+        className="flex items-center p-4 hover:bg-gray-100 hover:text-gray-600 rounded"
         href={link}
       >
         {text}
