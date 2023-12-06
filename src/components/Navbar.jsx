@@ -1,49 +1,30 @@
 import React, { useState } from "react";
 
-const NavbarItem = ({ link, text }) => {
-  return (
-    <li>
-      <a className="text-sm p-2" href={link}>
-        {text}
-      </a>
-    </li>
-  );
-};
-
-const MobileNavbarItem = ({ link, text }) => {
-  return (
-    <li className="mb-1 hover:border-r-4 border-[#f9de4e]">
-      <a
-        className="flex items-center p-4 hover:bg-gray-100 hover:text-gray-600 rounded"
-        href={link}
-      >
-        {text}
-      </a>
-    </li>
-  );
-};
-
-const menuItems = [
-  { link: "/", text: "Home" },
-  { link: "/invoices", text: "Invoices" },
-  { link: "/companies", text: "Companies" },
-  { link: "/contacts", text: "Contact" },
-];
-
-const renderedMenuItems = menuItems.map((item, index) => (
-  <NavbarItem key={index} link={item.link} text={item.text} />
-));
-
-const renderedMobileMenuItems = menuItems.map((item, index) => (
-  <MobileNavbarItem key={index} link={item.link} text={item.text} />
-));
-
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const menuItems = [
+    { link: "/", text: "Home" },
+    { link: "/invoices", text: "Invoices" },
+    { link: "/companies", text: "Companies" },
+    { link: "/contacts", text: "Contact" },
+  ];
+
+  const toggleStyles = isMenuOpen
+    ? "mb-1 hover:border-r-4 border-[#f9de4e] flex items-center p-4 hover:bg-gray-100 hover:text-gray-600 rounded"
+    : "text-sm p-2";
+
+  const renderedMenuItems = menuItems.map((item, index) => (
+    <li key={index}>
+      <a className={toggleStyles} href={item.link}>
+        {item.text}
+      </a>
+    </li>
+  ));
 
   return (
     <div>
@@ -82,12 +63,13 @@ export const Navbar = () => {
           Login
         </a>
       </nav>
+
+      {/* MOBILE / SIDE BAR */}
       <div
         className={`navbar-menu ${
           isMenuOpen ? "block" : "hidden"
         } navbar-menu relative z-50`}
       >
-        <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
         <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-4 bg-white border-r overflow-y-auto">
           <div className="flex items-center mb-8">
             <a
@@ -109,7 +91,7 @@ export const Navbar = () => {
               </svg>
             </button>
           </div>
-          <ul className="pl-6">{renderedMobileMenuItems}</ul>
+          <ul className="pl-6">{renderedMenuItems}</ul>
           <div className="mt-auto">
             <div className="pt-6 px-2">
               <a
