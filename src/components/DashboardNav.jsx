@@ -39,7 +39,7 @@ export const DashboardNav = () => {
     <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-1/6 max-w-sm bg-white border-r overflow-y-auto">
       <div className="flex flex-col items-center border-b border-gray-200 py-6 mb-8">
         <img src="/.." alt="avatar" />
-        <h3 className="text-2xl font-semibold hidden md:block">
+        <h3 className="text-2xl py-4 text-center font-semibold hidden md:block">
           Henry Georges
         </h3>
       </div>
