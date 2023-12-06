@@ -7,8 +7,10 @@ export const DashboardHome = () => {
   return (
     <div>
       <DashboardNav />
-      <DashboardHero name="Henry" url="Dashboard/" />
-      <Form />
+      <div className="p-8">
+        <DashboardHero name="Henry" url="Dashboard/" />
+        <Form />
+      </div>
     </div>
   );
 };

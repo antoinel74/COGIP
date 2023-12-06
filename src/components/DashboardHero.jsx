@@ -2,12 +2,12 @@ import React from "react";
 
 export const DashboardHero = ({ name, url }) => {
   return (
-    <div className=" relative w-5/6 ml-auto absolute right-0 h-[250px] p-8">
-      <div className="min-h-[50%]">
+    <div className="relative w-5/6 ml-auto right-0 mb-4">
+      <div className="h-1/2 pb-8">
         <h1 className="text-3xl font-extrabold">Dashboard</h1>
         <span>{url}</span>
       </div>
-      <div className="h-50 bg-[#9798d6] rounded">
+      <div className="h-1/2 bg-[#9798d6] rounded">
         <div className="w-full md:w-[50%] p-8 text-white">
           <h2 className="text-3xl font-semibold">Welcome back {name} !</h2>
           <p className="font-light mt-2">
