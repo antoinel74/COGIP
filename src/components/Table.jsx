@@ -5,7 +5,8 @@ import { Searchbar } from "./Searchbar";
  *composants tables a l'état de squelette le style a utiliser pour les differentes pages logged out et logged in (ou autre manière de faire on verra bien) il faudra gérer les etats des composant en fonction de paramètre data, page ...
  * @returns différentes tables de données contacts, companies, invoices
  */
-export const Table = ({ title }) => {
+export const Table = ({ title, data, pageType }) => {
+
   return (
     <>
       {/* table style log out */}
