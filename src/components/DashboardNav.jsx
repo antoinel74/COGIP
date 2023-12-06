@@ -1,5 +1,6 @@
 import React from "react";
 import Avatar from "./Avatar";
+import { Link } from "react-router-dom";
 
 const NavbarItem = ({ link, text, icon }) => (
   <li className="mb-1">
@@ -25,9 +26,9 @@ const ProfileSection = () => (
 const FooterSection = () => (
   <div className="mt-auto border-t border-gray-200 flex justify-between p-2">
     <Avatar name="Henry" width="w-6" height="h-6" />
-    <a href="/" className="text-[#9798d6]" alt="logout">
+    <Link to="/" className="text-[#9798d6]">
       Log out
-    </a>
+    </Link>
   </div>
 );
 
