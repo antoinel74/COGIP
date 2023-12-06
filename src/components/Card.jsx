@@ -39,12 +39,12 @@ export const Card = () => {
         </div>
       </div>
       {/* contact card */}
-      <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4">
+      <div className="max-w-sm bg-slate-200 rounded-xl flex  justify-center items-center p-4">
         {/* dynamic title component import */}
         <div className="w-32 h-32">
           <Avatar name="Henry George"></Avatar>
         </div>
-        <div>
+        <div className="flex flex-col text-4xl font-black	">
           <p>Henry</p>
           <p>George</p>
         </div>
