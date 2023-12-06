@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -71,16 +72,16 @@ export const Footer = () => {
       <div className="w-full flex justify-between opacity-40">
         <ul className="gap-4 uppercase py-4 flex-wrap hidden md:flex ">
           <li>
-            <a href="#">Home</a>
+            <Link to={`/`}>Home</Link>
           </li>
           <li>
-            <a href="#">Invoices</a>
+            <Link to={`invoices`}>Invoices</Link>
           </li>
           <li>
-            <a href="#">Company</a>
+            <Link to={`companies`}>Company</Link>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <Link to={`contacts`}>Contact</Link>
           </li>
           <li>
             <a href="#">PRIVACY POLICY</a>
