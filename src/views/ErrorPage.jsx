@@ -11,8 +11,8 @@ export default function ErrorPage() {
       <Navbar />
       <Divider />
       <div className="mt-24 flex flex-col gap-2 justify-center items-center">
-        <h1>Oops!</h1>
-        <p>Oh no bibou ץ An unexepcted error has occured</p>
+        <h1 className="font-semibold">Oops!</h1>
+        <p>It seems like something has gone wrong..</p>
         <p>
           <i>{error.statusText || error.message}</i>
         </p>
