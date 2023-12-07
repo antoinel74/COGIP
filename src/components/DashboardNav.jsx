@@ -1,18 +1,23 @@
 import React from "react";
 import Avatar from "./Avatar";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const NavbarItem = ({ link, text, icon }) => (
-  <li className="mb-1">
-    <Link
-      className="flex gap-4 items-center justify-center md:justify-start p-3 hover:border-r-4 border-[#9798d6] hover:text-[#9798d6]"
-      to={link}
-    >
-      <img className="h-5 w-5" src={icon} alt="icon" />
-      <span className="hidden md:block">{text}</span>
-    </Link>
-  </li>
-);
+const NavbarItem = ({ link, text, icon }) => {
+  const location = useLocation();
+  const isActive = location.pathname === link;
+  const activeStyle = isActive ? "border-r-4 border-[#9798d6]" : "";
+  return (
+    <li className="mb-1">
+      <Link
+        className={`flex gap-4 md:ml-6 mb-8 items-center py-1 justify-center md:justify-start hover:border-r-4 border-[#9798d6] hover:text-[#9798d6] ${activeStyle}`}
+        to={link}
+      >
+        <img className="h-5 w-5" src={icon} alt="icon" />
+        <span className="hidden md:block">{text}</span>
+      </Link>
+    </li>
+  );
+};
 
 const ProfileSection = () => (
   <div className="flex flex-col items-center border-b border-gray-200 py-6 my-4 md:my-8">
