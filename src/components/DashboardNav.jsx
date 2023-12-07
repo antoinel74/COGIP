@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const NavbarItem = ({ link, text, icon }) => (
   <li className="mb-1">
     <a
-      className="flex gap-4 items-center p-3 hover:border-r-4 border-[#9798d6] hover:text-[#9798d6]"
+      className="flex gap-4 items-center justify-center md:justify-start p-3 hover:border-r-4 border-[#9798d6] hover:text-[#9798d6]"
       href={link}
     >
       <img className="h-5 w-5" src={icon} alt="icon" />
