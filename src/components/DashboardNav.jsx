@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 const NavbarItem = ({ link, text, icon }) => (
   <li className="mb-1">
-    <a
+    <Link
       className="flex gap-4 items-center justify-center md:justify-start p-3 hover:border-r-4 border-[#9798d6] hover:text-[#9798d6]"
-      href={link}
+      to={link}
     >
       <img className="h-5 w-5" src={icon} alt="icon" />
       <span className="hidden md:block">{text}</span>
-    </a>
+    </Link>
   </li>
 );
 
@@ -34,14 +34,22 @@ const FooterSection = () => (
 
 export const DashboardNav = () => {
   const menuItems = [
-    { link: "/", text: "Home", icon: "/icons/Icon_dashboard.png" },
-    { link: "/invoices", text: "Invoices", icon: "/icons/Icon_Invoices.png" },
+    { link: "/dashboard", text: "Home", icon: "/icons/Icon_dashboard.png" },
     {
-      link: "/companies",
+      link: "/dashboard/invoices",
+      text: "Invoices",
+      icon: "/icons/Icon_Invoices.png",
+    },
+    {
+      link: "/dashboard/companies",
       text: "Companies",
       icon: "/icons/Icon_Companies.png",
     },
-    { link: "/contacts", text: "Contact", icon: "/icons/Icon_contact.png" },
+    {
+      link: "/dashboard/contact",
+      text: "Contact",
+      icon: "/icons/Icon_contact.png",
+    },
   ];
 
   return (
