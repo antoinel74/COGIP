@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div className="w-full">
       <Hero
-        text="MANAGE YOUR CUSTOMERS AND INVOICES EASLY"
+        text="MANAGE YOUR CUSTOMERS AND INVOICES EASILY"
         img="/img/manager-1.png"
         yellowBg={true}
       />

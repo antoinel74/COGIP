@@ -1,21 +1,27 @@
 import React from "react";
 import Avatar from "./Avatar";
+import { Link, useLocation } from "react-router-dom";
 
-const NavbarItem = ({ link, text, icon }) => (
-  <li className="mb-1">
-    <a
-      className="flex gap-4 items-center p-3 hover:border-r-4 border-[#9798d6] hover:text-[#9798d6]"
-      href={link}
-    >
-      <img className="h-5 w-5" src={icon} alt="icon" />
-      <span className="hidden md:block">{text}</span>
-    </a>
-  </li>
-);
+const NavbarItem = ({ link, text, icon }) => {
+  const location = useLocation();
+  const isActive = location.pathname === link;
+  const activeStyle = isActive ? "border-r-4 border-[#9798d6]" : "";
+  return (
+    <li className="mb-1">
+      <Link
+        className={`flex gap-4 md:ml-6 mb-8 items-center py-1 justify-center md:justify-start hover:border-r-4 border-[#9798d6] hover:text-[#9798d6] ${activeStyle}`}
+        to={link}
+      >
+        <img className="h-5 w-5" src={icon} alt="icon" />
+        <span className="hidden md:block">{text}</span>
+      </Link>
+    </li>
+  );
+};
 
 const ProfileSection = () => (
-  <div className="flex flex-col items-center border-b border-gray-200 py-6 mb-8">
-    <Avatar name="afrit"></Avatar>
+  <div className="flex flex-col items-center border-b border-gray-200 py-6 my-4 md:my-8">
+    <Avatar name="Henry" width="w-8 md:w-12" height="h-8 md:h-12" />
     <h3 className="text-2xl py-4 text-center font-semibold hidden md:block">
       Henry Georges
     </h3>
@@ -24,23 +30,31 @@ const ProfileSection = () => (
 
 const FooterSection = () => (
   <div className="mt-auto border-t border-gray-200 flex justify-between p-2">
-    <img src="/.." alt="avatar" className="hidden md:block" />
-    <a href="/" className="text-[#9798d6]" alt="logout">
+    <Avatar name="Henry" width="w-6" height="h-6" />
+    <Link to="/" className="text-[#9798d6]">
       Log out
-    </a>
+    </Link>
   </div>
 );
 
 export const DashboardNav = () => {
   const menuItems = [
-    { link: "/", text: "Home", icon: "/icons/Icon_dashboard.png" },
-    { link: "/invoices", text: "Invoices", icon: "/icons/Icon_Invoices.png" },
+    { link: "/dashboard", text: "Home", icon: "/icons/Icon_dashboard.png" },
     {
-      link: "/companies",
+      link: "/dashboard/invoices",
+      text: "Invoices",
+      icon: "/icons/Icon_Invoices.png",
+    },
+    {
+      link: "/dashboard/companies",
       text: "Companies",
       icon: "/icons/Icon_Companies.png",
     },
-    { link: "/contacts", text: "Contact", icon: "/icons/Icon_contact.png" },
+    {
+      link: "/dashboard/contact",
+      text: "Contact",
+      icon: "/icons/Icon_contact.png",
+    },
   ];
 
   return (

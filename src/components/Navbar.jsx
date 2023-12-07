@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export const Navbar = () => {
+  const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -12,20 +13,27 @@ export const Navbar = () => {
     { link: "/", text: "Home" },
     { link: "/invoices", text: "Invoices" },
     { link: "/companies", text: "Companies" },
-    { link: "/contacts", text: "Contact" },
+    { link: "/contacts", text: "Contacts" },
   ];
 
+  /*  STYLE SWITCH FOR SIDE MENU  */
   const toggleStyles = isMenuOpen
     ? "mb-1 hover:border-r-4 border-[#f9de4e] flex items-center p-4 hover:bg-gray-100 hover:text-gray-600 rounded"
     : "text-sm p-2";
 
-  const renderedMenuItems = menuItems.map((item, index) => (
-    <li key={index}>
-      <Link to={item.link} className={toggleStyles}>
-        {item.text}
-      </Link>
-    </li>
-  ));
+  /* SHOW ACTIVE VIEW */
+  const renderedMenuItems = menuItems.map((item, index) => {
+    const isActive = location.pathname === item.link && !isMenuOpen;
+    const activeStyles = isActive ? "border border-black" : "";
+
+    return (
+      <li key={index}>
+        <Link to={item.link} className={`${toggleStyles} ${activeStyles}`}>
+          {item.text}
+        </Link>
+      </li>
+    );
+  });
 
   return (
     <div>

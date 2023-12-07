@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
-import { getAvatar } from '../helpers/fetchAvatar';
+import React, { useEffect, useState } from "react";
+import { getAvatar } from "../helpers/fetchAvatar";
 /**
  * function to get avatars corresponding to a user or contact name (while we dont have images in our db)
  * @param {string} name  the name of the contact/user/...
- * @returns {Avatar} 
+ * @returns {Avatar}
  */
-const Avatar = ({ name }) => {
+const Avatar = ({ name, width, height }) => {
   const [avatar, setAvatar] = useState(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ const Avatar = ({ name }) => {
   }, [name]);
 
   return (
-    <div>
+    <div className={`${width} ${height}`}>
       {avatar && <div dangerouslySetInnerHTML={{ __html: avatar }} />}
     </div>
   );

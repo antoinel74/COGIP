@@ -10,6 +10,9 @@ import Home from "./views/app/home.jsx";
 import { Companies } from "./views/app/companies.jsx";
 import { Contacts } from "./views/app/contacts.jsx";
 import { DashboardHome } from "./views/dashboard/DashboardHome.jsx";
+import { InvoicesForm } from "./views/dashboard/invoiceForm.jsx";
+import { CompaniesForm } from "./views/dashboard/companiesForm.jsx";
+import { ContactForm } from "./views/dashboard/contactForm.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,8 +44,20 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "dashboard",
+        path: "/dashboard",
         element: <DashboardHome />,
+      },
+      {
+        path: "/dashboard/invoices",
+        element: <InvoicesForm />,
+      },
+      {
+        path: "/dashboard/companies",
+        element: <CompaniesForm />,
+      },
+      {
+        path: "/dashboard/contact",
+        element: <ContactForm />,
       },
     ],
   },

@@ -13,7 +13,7 @@ export const Form = () => {
   ];
 
   return (
-    <form className="flex flex-col gap-6 mx-12">
+    <form className="flex flex-col gap-6 relative w-5/6 ml-auto right-0">
       <input
         type="text"
         placeholder="References"
