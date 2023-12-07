@@ -1,5 +1,10 @@
 import React from "react";
+import { Divider } from "../../components/Divider";
 
 export const Invoices = () => {
-  return <div>invoices</div>;
+  return (
+    <div>
+      <Divider /> invoices
+    </div>
+  );
 };
