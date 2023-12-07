@@ -13,7 +13,7 @@ export const Navbar = () => {
     { link: "/", text: "Home" },
     { link: "/invoices", text: "Invoices" },
     { link: "/companies", text: "Companies" },
-    { link: "/contacts", text: "Contact" },
+    { link: "/contacts", text: "Contacts" },
   ];
 
   /*  STYLE SWITCH FOR SIDE MENU  */
