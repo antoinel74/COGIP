@@ -2,7 +2,7 @@ import jsonData from "../../assets/data.json";
 
 /**
  * Fetches a specific page of data for the given data type.
- *
+ *example:  const page1 = await fetchPageByType("contacts", 1);
  * @param {string} data - Data parameter corresponding to "contacts", "invoices", "companies"
  * @param {number} pageNumber - Page number to fetch
  * @returns {Array} - Data for the specified page and data parameter

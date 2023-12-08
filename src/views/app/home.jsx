@@ -4,7 +4,9 @@ import { Divider } from "../../components/Divider";
 import { Table } from "../../components/Table";
 import { List } from "../../components/List";
 
+
 const Home = () => {
+
   return (
     <div className="w-full">
       <Hero
