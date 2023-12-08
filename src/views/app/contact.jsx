@@ -9,7 +9,6 @@ import Avatar from "../../components/Avatar";
 export const Contact = () => {
   const { contactsId } = useParams();
   const [contactData, setContactData] = useState(null);
-  const [companyName, setCompanyName] = useState(null);
 
   useEffect(() => {
     const fetchAllContacts = async () => {
@@ -19,22 +18,12 @@ export const Contact = () => {
           (contact) => contact.id === parseInt(contactsId)
         );
         setContactData(contact);
-        const company = await fetchCompany(contact.id_company);
-        setCompanyName(company.name);
       } catch (error) {
         console.error("Error fetching contacts", error);
       }
     };
     fetchAllContacts();
   }, [contactsId]);
-
-  const fetchCompany = async (companyId) => {
-    const companies = await fetchAllData("companies");
-    const company = companies.find(
-      (company) => company.id === parseInt(companyId)
-    );
-    return company;
-  };
 
   return (
     <section>
@@ -47,7 +36,7 @@ export const Contact = () => {
               name={contactData.firstname}
               tva={contactData.email}
               country={contactData.phone}
-              type={companyName}
+              type={contactData.company_name}
             />
           </div>
           <Avatar
