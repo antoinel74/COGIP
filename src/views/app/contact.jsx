@@ -29,7 +29,7 @@ export const Contact = () => {
     <section>
       <Divider />
       {contactData ? (
-        <div className="mt-4 p-6 md:p-14 flex justify-around">
+        <div className="mt-4 p-6 md:px-48 flex justify-around md:justify-between">
           <div>
             <Title title={contactData.name} />
             <List
