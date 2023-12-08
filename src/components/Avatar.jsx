@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAvatar } from "../helpers/fetchAvatar";
+import { getAvatar } from "../helpers/api/fetchAvatar";
 /**
  * function to get avatars corresponding to a user or contact name (while we dont have images in our db)
  * @param {string} name  the name of the contact/user/...
