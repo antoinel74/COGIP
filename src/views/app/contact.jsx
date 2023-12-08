@@ -31,7 +31,7 @@ export const Contact = () => {
       {contactData ? (
         <div className="mt-4 p-6 md:px-48 flex justify-around md:justify-between">
           <div>
-            <Title title={contactData.name} />
+            <Title title={`${contactData.firstname} ${contactData.name}`} />
             <List
               label1="Contact"
               label2="Phone"
