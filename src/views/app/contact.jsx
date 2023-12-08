@@ -33,10 +33,14 @@ export const Contact = () => {
           <div>
             <Title title={contactData.name} />
             <List
-              name={contactData.firstname}
-              tva={contactData.email}
-              country={contactData.phone}
-              type={contactData.company_name}
+              label1="Contact"
+              label2="Phone"
+              label3="Mail"
+              label4="Company"
+              data1={`${contactData.firstname} ${contactData.name}`}
+              data2={contactData.phone}
+              data3={contactData.email}
+              data4={contactData.company_name}
             />
           </div>
           <Avatar
