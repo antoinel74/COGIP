@@ -29,7 +29,7 @@ export const Company = () => {
       <Divider />
       {companyData ? (
         <div className="mt-4 py-10 p-6 md:p-12">
-          <Title title={companyData.name} />
+          <Title title={companyData.name} uppercase={true} />
           <List
             label1="Name"
             label2="TVA"
