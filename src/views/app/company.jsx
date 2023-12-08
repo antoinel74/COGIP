@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { List } from "../../components/List";
-import jsonData from "../../assets/data.json";
 import { Divider } from "../../components/Divider";
 import { Title } from "../../components/Title";
+import { fetchAllData } from "../../helpers/api/fetchAllData";
 
 export const Company = () => {
   const { companiesId } = useParams();
@@ -11,17 +11,16 @@ export const Company = () => {
 
   useEffect(() => {
     const fetchAllCompanies = async () => {
-      let companies = [];
-      for (let page of jsonData.companies) {
-        const data = page.data;
-        companies = companies.concat(data);
+      try {
+        const companies = await fetchAllData("companies");
+        const company = companies.find(
+          (company) => company.id === parseInt(companiesId)
+        );
+        setCompanyData(company);
+      } catch (error) {
+        console.error("Error fetching data:", error);
       }
-      const company = companies.find(
-        (company) => company.id === parseInt(companiesId)
-      );
-      setCompanyData(company);
     };
-
     fetchAllCompanies();
   }, [companiesId]);
 
@@ -37,6 +36,7 @@ export const Company = () => {
             country={companyData.country}
             type={companyData.type}
           />
+          <span className="border-t block border-gray-200 w-full my-12"></span>
         </div>
       ) : (
         <div>Company not found !</div>
