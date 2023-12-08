@@ -4,16 +4,16 @@ export const List = ({ name, tva, country, type }) => {
   return (
     <ul className="flex flex-col gap-2">
       <li>
-        <span className="font-semibold">Name :</span> {name}
+        <span className="font-bold">Name :</span> {name}
       </li>
       <li>
-        <span className="font-semibold">TVA :</span> {tva}
+        <span className="font-bold">TVA :</span> {tva}
       </li>
       <li>
-        <span className="font-semibold">Country :</span> {country}
+        <span className="font-bold">Country :</span> {country}
       </li>
       <li>
-        <span className="font-semibold">Type :</span> {type}
+        <span className="font-bold">Type :</span> {type}
       </li>
     </ul>
   );
