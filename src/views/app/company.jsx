@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { List } from "../../components/List";
 import jsonData from "../../assets/data.json";
+import { Divider } from "../../components/Divider";
+import { Title } from "../../components/Title";
 
 export const Company = () => {
   const { companiesId } = useParams();
@@ -24,17 +26,21 @@ export const Company = () => {
   }, [companiesId]);
 
   return (
-    <div>
+    <section>
+      <Divider />
       {companyData ? (
-        <List
-          name={companyData.name}
-          tva={companyData.tva}
-          country={companyData.country}
-          type={companyData.type}
-        />
+        <div className="mt-4 py-10 p-6 md:p-12">
+          <Title title={companyData.name} />
+          <List
+            name={companyData.name}
+            tva={companyData.tva}
+            country={companyData.country}
+            type={companyData.type}
+          />
+        </div>
       ) : (
         <div>Company not found !</div>
       )}
-    </div>
+    </section>
   );
 };
