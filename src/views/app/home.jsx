@@ -3,6 +3,7 @@ import Hero from "../../components/Hero";
 import { Divider } from "../../components/Divider";
 import { Table } from "../../components/Table";
 import { List } from "../../components/List";
+import { Table2 } from "../../components/Table2";
 
 
 const Home = () => {
