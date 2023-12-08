@@ -36,7 +36,11 @@ export const Company = () => {
             country={companyData.country}
             type={companyData.type}
           />
-          <span className="border-t block border-gray-200 w-full my-12"></span>
+          <div className="border-t border-gray-100 my-6">
+            <h2 className="text-3xl md:text-4xl font-extrabold my-6">
+              Contact People
+            </h2>
+          </div>
         </div>
       ) : (
         <div>Company not found !</div>
