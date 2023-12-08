@@ -34,6 +34,7 @@ export const Footer = () => {
           </p>
 
           <div className="flex text-gray-600">
+            <span className="hidden md:block">Social media :</span>
             <a href="https://facebook.com">
               <img
                 src="/icons/square-facebook.svg"
