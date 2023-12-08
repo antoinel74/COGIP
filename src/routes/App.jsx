@@ -5,13 +5,13 @@ import { Outlet } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <main className="min-h-screen">
       <Navbar />
       <div id="detail">
         <Outlet />
       </div>
       <Footer />
-    </>
+    </main>
   );
 }
 
