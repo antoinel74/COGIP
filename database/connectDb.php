@@ -1,7 +1,5 @@
 <?php
 
-
-
 function connectDb()
 {
 
@@ -25,4 +23,3 @@ function connectDb()
         echo "Error : " . $e->getMessage();
     }
 }
-

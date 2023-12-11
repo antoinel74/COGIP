@@ -2,6 +2,10 @@
 
 declare(strict_types=1);
 
+namespace App\Model;   
+
+use App\Database;
+
 class Compagnies
 {
     private $id_compagnies;
