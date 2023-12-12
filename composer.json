@@ -1,15 +1,13 @@
 {
     "name": "basti/cogip",
-    "description": "Projet - COGIP",
     "autoload": {
         "psr-4": {
-            "App\\": "./"
+            "App\\": "src/"
         }
     },
     "authors": [
         {
-            "name": "Venturi",
-            "email": "bastien.aristide.venturi@gmail.com"
+            "name": "Venturi"
         }
     ],
     "require": {

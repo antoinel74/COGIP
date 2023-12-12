@@ -1,0 +1,65 @@
+<?php
+
+namespace App\Routes;
+
+use Bramus\Router\Router;
+use App\Controllers\HomeController;
+
+
+$router = new Router();
+
+$router->get('/', function() {
+    (new WelcomeController)->getFirstFiveCompanies();
+    (new WelcomeController)->getFirstFiveInvoices();
+    (new WelcomeController)->getFirstFiveContacts();
+});
+
+
+$router->get('/invoices', function() {
+    (new InvoicesController)->getAllInvoices();
+});
+
+$router->get('/invoices/(\d+)', function($id) {
+    (new InvoicesController)->getInvoice($id);
+});
+
+$router->post('/invoices', function() {
+    $data = json_decode(file_get_contents('php://input'), true);
+    (new InvoicesController)->createInvoice($data);
+});
+
+$router->get('/contacts', function() {
+    (new ContactsController)->getAllContacts();
+});
+
+$router->get('/contacts/(\d+)', function($id) {
+    (new ContactsController)->getContact($id);
+});
+
+$router->post('/contacts', function() {
+    $data = json_decode(file_get_contents('php://input'), true);
+    (new ContactsController)->createContact($data);
+});
+
+$router->get('/companies', function() {
+    (new CompaniesController)->getAllCompanies();
+});
+
+$router->get('/companies/(\d+)', function($id) {
+    (new CompaniesController)->getCompany($id);
+});
+
+$router->post('/companies', function() {
+    $data = json_decode(file_get_contents('php://input'), true);
+    (new CompaniesController)->createCompany($data);
+});
+
+$router->get('/companies/(\d+)/show', function($id) {
+    (new ShowController)->getCompaniesById($id);
+    (new ShowController)->getFirstFiveInvoices();
+    (new ShowController)->getFirstFiveContacts();
+
+});
+
+$router->run();
+
