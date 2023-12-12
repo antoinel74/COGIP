@@ -13,6 +13,7 @@ export const Company = () => {
     const fetchAllCompanies = async () => {
       try {
         const companies = await fetchAllData("companies");
+        console.log(companies);
         const company = companies.find(
           (company) => company.id === parseInt(companiesId)
         );
