@@ -19,6 +19,7 @@ const Home = () => {
       <div className="mx-6">
         <Table title="Last invoices" />
       </div>
+      <Table2 pageType="application" dataType="invoices" />
       <Hero
         text="WORK BETTER IN YOUR COMPANY"
         img="/img/manager-2.png"

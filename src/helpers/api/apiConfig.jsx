@@ -1,8 +1,16 @@
-const baseURL = '';
+const apikey = import.meta.env.VITE_COGIP_KEY;
+const baseURL = `https://cogip-api-${apikey}.herokuapp.com`;
 
 /**
- * path builder for api calls
- * @param {string} path the path to api's endpoint
- * @returns {buildApiUrl} the full path to api's endpoint
+ * Construct the api endpoint with the data type and the options described here:
+ * @param {string} dataType - parameter corresponding to "contacts", "invoices", "companies"
+ * @param {string} options - options to add to the endpoint (ex: "?page=2", "/last" or "/1"**for a single item call by id**)
+ * @returns 
  */
-export const buildApiUrl = (path) => `${baseURL}${path}`;
+export const buildApiEndpoint = (dataType, options) => {
+    let path = `${baseURL}/${dataType}`;
+    if (options) {
+        path += `${options}`;
+    }
+    return path;
+}

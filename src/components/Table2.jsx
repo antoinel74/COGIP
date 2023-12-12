@@ -1,25 +1,20 @@
-import { useParams } from "react-router-dom";
-import React, { useState, useEffect } from "react";
-import { fetchPageByType } from "../helpers/api/FetchPageByType";
-import { fetchLast } from "../helpers/api/fetchLast";
-import Searchbar  from "./Searchbar";
-import { getDataMap } from "../helpers/api/getDataMap";
-
-const getHeadersMap = (pageType) => {
-  if (pageType === "admin_panel") {
-    return {
-      companies: ["Name", "Tva", "Country"],
-      invoices: ["Invoice Number", "Dates", "Company"],
-      contacts: ["Name", "Phone", "Email"],
-    };
-  } else {
-    return {
-      companies: ["Name", "Tva", "Country", "Type", "Created At"],
-      invoices: ["Invoice number", "Due Dates", "Company", "Created At"],
-      contacts: ["Name", "Phone", "Mail", "Company", "Created At"],
-    };
-  }
-};
+import React, { useEffect } from 'react';
+import { useTableStore } from '../helpers/store/useTableStore';
+// const getHeadersMap = (pageType) => {
+//   if (pageType === "admin_panel") {
+//     return {
+//       companies: ["Name", "Tva", "Country"],
+//       invoices: ["Invoice Number", "Dates", "Company"],
+//       contacts: ["Name", "Phone", "Email"],
+//     };
+//   } else {
+//     return {
+//       companies: ["Name", "Tva", "Country", "Type", "Created At"],
+//       invoices: ["Invoice number", "Due Dates", "Company", "Created At"],
+//       contacts: ["Name", "Phone", "Mail", "Company", "Created At"],
+//     };
+//   }
+// };
 
 
 /**
@@ -30,10 +25,25 @@ const getHeadersMap = (pageType) => {
  * @returns
  */
 export const Table2 = ({ pageType, dataType }) => {
-  const headersMap = getHeadersMap(pageType);
-  const dataMap = getDataMap(pageType);
-  const headers = headersMap[dataType] || [];
-  const dataKeys = dataMap[dataType] || [];
+
+  const { lastInvoices, fetchLastInvoices } = useTableStore();
+
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      await fetchLastInvoices();
+    };
+
+    fetchData();
+  }, []);
+
+  console.log(lastInvoices);  
+
+  // const headersMap = getHeadersMap(pageType);
+  // const dataMap = getDataMap(pageType);
+  // const headers = headersMap[dataType] || [];
+  // const dataKeys = dataMap[dataType] || [];
+
   // const { dataType } = useParams();
   // const [data, setData] = useState([]);
   // const [title, setTitle] = useState("");
@@ -61,7 +71,7 @@ export const Table2 = ({ pageType, dataType }) => {
  
     return (
       <div className={`overflow-x-auto mx-auto flex flex-col ${pageType === 'admin_panel' ? 'max-w-xl' : 'max-w-6xl'}`}>
-        {pageType === "application" || pageType === "show" && 
+        {/* {pageType === "application" || pageType === "show" && 
             <div>
               <h2 className="text-4xl w-full font-extrabold py-6 capitalize">{pageType === "show" ? "all" : "last"} {dataType}</h2>
             </div>
@@ -96,7 +106,7 @@ export const Table2 = ({ pageType, dataType }) => {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table> */}
       </div>
     );
 };
