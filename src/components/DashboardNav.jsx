@@ -30,7 +30,7 @@ const ProfileSection = () => (
 
 const FooterSection = () => (
   <div className="mt-auto border-t border-gray-200 flex justify-between p-2">
-    <Avatar name="Henry" width="w-6" height="h-6" />
+    <Avatar name="Henry" width="w-6" height="h-6 hidden md:block" />
     <Link to="/" className="text-[#9798d6]">
       Log out
     </Link>

@@ -114,7 +114,7 @@ export const Navbar = () => {
               </a>
               <Link
                 to="dashboard"
-                className="block mb-3 p-2 leading-loose text-xs text-center font-semibold bg-[#f9de4e] hover:bg-yellow-200 rounded-xl"
+                className="block mb-3 p-3 leading-loose text-xs text-center font-semibold bg-[#f9de4e] hover:bg-yellow-200 rounded-xl"
               >
                 Login
               </Link>
