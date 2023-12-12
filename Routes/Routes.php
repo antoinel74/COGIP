@@ -3,7 +3,11 @@
 namespace App\Routes;
 
 use Bramus\Router\Router;
-use App\Controllers\HomeController;
+use App\Controllers\WelcomeController;
+use App\Controllers\InvoicesController;
+use App\Controllers\ContactsController;
+use App\Controllers\CompaniesController;
+use App\Controllers\ShowController;
 
 
 $router = new Router();

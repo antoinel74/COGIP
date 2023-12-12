@@ -11,6 +11,6 @@ class BaseModel
 
     public function __construct()
     {
-        $this->connection = Database::getInstance()->getConnection();
+        $this->connection = Database::getConnection();
     }
 }
