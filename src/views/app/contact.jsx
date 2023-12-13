@@ -5,14 +5,12 @@ import { Divider } from "../../components/Divider";
 import { Title } from "../../components/Title";
 import { useShowContactStore } from "../../helpers/store/useShowContactStore";
 import { Loader } from "../../components/Loader";
-import Avatar from "../../components/Avatar";
+import { transformIPFSUrl } from "../../helpers/transformIPFSUrl";
 
 export const Contact = () => {
   const { contactId } = useParams();
   const { contactDetails, fetchContactById } = useShowContactStore();
   const [loading, setLoading] = useState(true);
-
-  console.log(contactId);
 
   useEffect(() => {
     const fetchCompany = async () => {
@@ -30,8 +28,8 @@ export const Contact = () => {
       {loading ? (
         <Loader />
       ) : contactDetails ? (
-        <div className="mt-4 p-6 md:px-48 flex justify-around md:justify-between">
-          <div>
+        <div className="mt-4 p-6 md:px-48 flex flex-col-reverse md:flex-row justify-around md:justify-between">
+          <div className="mt-4">
             <Title title={contactDetails.name} uppercase={false} />
             <List
               label1="Contact"
@@ -44,10 +42,10 @@ export const Contact = () => {
               data4={contactDetails.company_name}
             />
           </div>
-          <Avatar
-            name={contactDetails.name}
-            height="h-16 md:h-[240px] bg-slate-200"
-            width="w-16 md:w-[240px]"
+          <img
+            src={transformIPFSUrl(contactDetails.Avatar)}
+            alt="avatar"
+            className="h-16 w-16 md:h-[200px] md:w-[200px] lg:h-[240px] lg:w-[240px] rounded-full"
           />
         </div>
       ) : (
