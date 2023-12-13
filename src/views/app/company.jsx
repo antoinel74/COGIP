@@ -6,6 +6,7 @@ import { Title } from "../../components/Title";
 import { useShowCompanyStore } from "../../helpers/store/useShowCompanyStore";
 import { Loader } from "../../components/Loader";
 import { Card } from "../../components/Card";
+import { Link } from "react-router-dom";
 
 export const Company = () => {
   const { companyId } = useParams();
@@ -46,7 +47,9 @@ export const Company = () => {
             </h2>
             <div className="flex gap-4 flex-wrap">
               {companyDetails.Contacts.map((contact) => (
-                <Card key={contact.id} name={contact.name} />
+                <Link to={`/contacts/${contact.id}`} key={contact.id}>
+                  <Card name={contact.name} />
+                </Link>
               ))}
             </div>
           </div>
