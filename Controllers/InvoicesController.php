@@ -20,9 +20,9 @@ class InvoicesController extends Controller
         $this->invoicesModel->getAllInvoices();
     }
 
-    public function getInvoice($id)
+    public function getInvoiceById($id)
     {
-        $this->invoicesModel->getInvoice($id);
+        $this->invoicesModel->getInvoiceById($id);
     }
 
     public function getFirstFiveInvoices()

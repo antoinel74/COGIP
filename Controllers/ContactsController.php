@@ -20,9 +20,9 @@ class ContactsController extends Controller
         $this->contactsModel->getAllContacts();
     }
 
-    public function getContact($id)
+    public function getContactById($id)
     {
-        $this->contactsModel->getContact($id);
+        $this->contactsModel->getContactById($id);
     }
 
     public function getFirstFiveContacts()

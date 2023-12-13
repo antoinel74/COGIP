@@ -16,11 +16,12 @@ class ContactsModel extends BaseModel
             $stmt = $this->getConnection()->prepare("SELECT contacts.*, companies.name AS company_name 
             FROM contacts 
             INNER JOIN companies ON contacts.company_id = companies.id
-            LIMIT :limit OFFSET :offset");
+            ORDER BY id DESC");
             $stmt->execute();
             $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $contacts = array('All_Contacts' => $contacts);
             header('Content-Type: application/json');
-            echo json_encode($contacts);
+            echo json_encode($contacts, JSON_PRETTY_PRINT);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
@@ -35,7 +36,24 @@ class ContactsModel extends BaseModel
             ORDER BY id DESC LIMIT 5");
             $stmt->execute();
             $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $contacts = array('Last contacts' => $contacts);
+            $contacts = array('Contacts by companies' => $contacts);
+            header('Content-Type: application/json');
+            echo json_encode($contacts, JSON_PRETTY_PRINT);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }        
+    }
+
+    public function getContactsbycompagnies()
+    {
+        try {
+            $stmt = $this->getConnection()->prepare("SELECT contacts.*, companies.name AS company_name 
+            FROM contacts 
+            INNER JOIN companies ON contacts.company_id = companies.id
+            ORDER BY companies.name ASC");
+            $stmt->execute();
+            $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $contacts = array('Contacts by companies' => $contacts);
             header('Content-Type: application/json');
             echo json_encode($contacts, JSON_PRETTY_PRINT);
         } catch (Exception $e) {
@@ -49,14 +67,33 @@ class ContactsModel extends BaseModel
             $stmt = $this->getConnection()->prepare("SELECT contacts.*, companies.name AS company_name 
             FROM contacts 
             INNER JOIN companies ON contacts.company_id = companies.id
-            WHERE contacts.id = :id");
+            WHERE contacts.id = :id
+            ORDER BY id DESC LIMIT 5");
             $stmt->bindParam(':id', $id);
             $stmt->execute();
-            $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+            $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $contacts = array('Contact' => $contacts);
             header('Content-Type: application/json');
-            echo json_encode($contact);
+            echo json_encode($contacts, JSON_PRETTY_PRINT);
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+    }
+
+    public function getCompanyContacts()
+    {
+        try {
+            $stmt = $this->getConnection()->prepare("SELECT contacts.*, companies.name AS company_name 
+            FROM contacts 
+            INNER JOIN companies ON contacts.company_id = companies.id
+            ORDER BY companies.name ASC");
+            $stmt->execute();
+            $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            $contacts = array('Contacts by companies' => $contacts);
+            header('Content-Type: application/json');
+            echo json_encode($contacts, JSON_PRETTY_PRINT);
+        } catch (Exception $e) {
+            echo $e->getMessage();
+        }        
     }
 }

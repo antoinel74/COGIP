@@ -22,18 +22,18 @@ class ShowController extends Controller
         $this->contactsModel = new ContactsModel;
     }
     
-    public function getCompany($id)
+    public function getCompanyById($id)
     {
-        $this->companiesModel->getCompany($id);
+        $this->companiesModel->getCompanyById($id);
     }
 
-    public function getFirstFiveInvoices()
+    public function getCompanyInvoices()
     {
-        $this->invoicesModel->getFirstFiveInvoices();
+        $this->invoicesModel->getCompanyInvoices();
     }
 
-    public function getFirstFiveContacts()
+    public function getCompanyContacts()
     {
-        $this->contactsModel->getFirstFiveContacts();
+        $this->contactsModel->getCompanyContacts();
     }
 }

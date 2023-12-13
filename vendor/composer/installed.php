@@ -3,7 +3,7 @@
         'name' => 'basti/cogip',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'ec1acffbb46bcc764aa822b9ed2fe28dde6765a2',
+        'reference' => 'fe5a0d2ddf1b07855e5c7146d3a37b9eceb9e310',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'basti/cogip' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'ec1acffbb46bcc764aa822b9ed2fe28dde6765a2',
+            'reference' => 'fe5a0d2ddf1b07855e5c7146d3a37b9eceb9e310',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
