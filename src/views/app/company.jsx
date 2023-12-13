@@ -7,6 +7,7 @@ import { useShowCompanyStore } from "../../helpers/store/useShowCompanyStore";
 import { Loader } from "../../components/Loader";
 import { Card } from "../../components/Card";
 import { Link } from "react-router-dom";
+import { transformIPFSUrl } from "../../helpers/transformIPFSUrl";
 
 export const Company = () => {
   const { companyId } = useParams();
@@ -48,7 +49,10 @@ export const Company = () => {
             <div className="flex gap-4 flex-wrap">
               {companyDetails.Contacts.map((contact) => (
                 <Link to={`/contacts/${contact.id}`} key={contact.id}>
-                  <Card name={contact.name} />
+                  <Card
+                    name={contact.name}
+                    avatarURL={transformIPFSUrl(contact.Avatar)}
+                  />
                 </Link>
               ))}
             </div>
