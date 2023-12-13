@@ -4,20 +4,21 @@ import Avatar from "./Avatar";
  * Premier essai de carte pour les tableau du dashboard restructuration a voir le titre devra surement etre passer par le tableau la séparation également a retravailler
  *
  */
-export const Card = () => {
+export const Card = ({ name }) => {
+  const words = name.split(" ");
   return (
     <>
       {/* card dahboard tables */}
-      <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4">
+      {/* <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4"> */}
         {/* dynamic title component import */}
-        <div>
+        {/* <div>
           <h2 className="text-lg w-full font-bold py-4 px-6">titre</h2>
         </div>
         <span className="border-t block border-solid border-black w-11/12 mb-4 mt-2"></span>
-        <div>
+        <div> */}
           {/* table component import */}
-        </div>
-      </div>
+        {/* </div>
+      </div> */}
       {/* card dashboard pile */}
       <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-8">
         <div>
