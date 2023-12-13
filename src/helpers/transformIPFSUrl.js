@@ -7,7 +7,7 @@ export function transformIPFSUrl(originalUrl) {
     const transformedUrl = prefixReplacement + hashAndPath;
     return transformedUrl;
   } else {
-    console.error('Invalid URL format. URL should start with "ipfs://".');
+    console.error("Avatar URL is not IPFS");
     return originalUrl;
   }
 }
