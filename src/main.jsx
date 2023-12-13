@@ -13,8 +13,8 @@ import { DashboardHome } from "./views/dashboard/DashboardHome.jsx";
 import { InvoicesForm } from "./views/dashboard/invoiceForm.jsx";
 import { CompaniesForm } from "./views/dashboard/companiesForm.jsx";
 import { ContactForm } from "./views/dashboard/contactForm.jsx";
-// import { Company } from "./views/app/company.jsx";
-// import { Contact } from "./views/app/contact.jsx";
+import { Company } from "./views/app/company.jsx";
+/* import { Contact } from "./views/app/contact.jsx"; */
 
 const router = createBrowserRouter([
   {
@@ -34,18 +34,18 @@ const router = createBrowserRouter([
         path: "companies",
         element: <Companies />,
       },
-      // {
-      //   path: "companies/:companiesId",
-      //   element: <Company />,
-      // },
+      {
+        path: "companies/:companyId",
+        element: <Company />,
+      },
       {
         path: "contacts",
         element: <Contacts />,
       },
-      // {
-      //   path: "contacts/:contactsId",
-      //   element: <Contact />,
-      // },
+      /*       {
+        path: "contacts/:contactsId",
+        element: <Contact />,
+      }, */
     ],
   },
   {
