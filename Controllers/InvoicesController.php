@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Model\InvoicesModel;
+use PDO;
 
 class InvoicesController extends Controller
 {
@@ -24,9 +25,9 @@ class InvoicesController extends Controller
         $this->invoicesModel->getInvoice($id);
     }
 
-    public function getInvoicesLastFive()
+    public function getFirstFiveInvoices()
     {
-        $this->invoicesModel->getInvoicesLastFive();
+        $this->invoicesModel->getFirstFiveInvoices();
     }
 
     public function createInvoice($data)

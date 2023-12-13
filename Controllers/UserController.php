@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Model\UserModel;
+use PDO;
 
 class UserController extends Controller
 {

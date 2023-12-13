@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Model\ContactsModel;
+use PDO;
 
 class ContactsController extends Controller
 {
@@ -24,9 +25,9 @@ class ContactsController extends Controller
         $this->contactsModel->getContact($id);
     }
 
-    public function getContactsLastFive()
+    public function getFirstFiveContacts()
     {
-        $this->contactsModel->getContactsLastFive();
+        $this->contactsModel->getFirstFiveContacts();
     }
 
     public function createContact($data)

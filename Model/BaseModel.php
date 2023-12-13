@@ -2,15 +2,20 @@
 
 namespace App\Model;
 
-use App\Database;
+use App\Database\Database;
 
 
 class BaseModel
 {
     protected $connection;
 
-    public function __construct()
+    public function getConnection()
     {
-        $this->connection = Database::getConnection();
+        // Instancier la classe Database et appeler la méthode connect() au moment de la demande
+        $database = Database::getInstance();
+        $this->connection = $database->getConnection();
+
+        return $this->connection;
     }
+    
 }

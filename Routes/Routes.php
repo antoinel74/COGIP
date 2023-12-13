@@ -9,61 +9,64 @@ use App\Controllers\ContactsController;
 use App\Controllers\CompaniesController;
 use App\Controllers\ShowController;
 
-
 $router = new Router();
 
-$router->get('/', function() {
-    (new WelcomeController)->getFirstFiveCompanies();
-    (new WelcomeController)->getFirstFiveInvoices();
-    (new WelcomeController)->getFirstFiveContacts();
+// Créez les instances des contrôleurs au début
+$welcomeController = new WelcomeController();
+$invoicesController = new InvoicesController();
+$contactsController = new ContactsController();
+$companiesController = new CompaniesController();
+$showController = new ShowController();
+
+$router->get('/', function () use ($welcomeController) {
+    $welcomeController->getFirstFiveCompanies();
+    $welcomeController->getFirstFiveContacts();
+    $welcomeController->getFirstFiveInvoices();
 });
 
-
-$router->get('/invoices', function() {
-    (new InvoicesController)->getAllInvoices();
+$router->get('/invoices', function () use ($invoicesController) {
+    $invoicesController->getAllInvoices();
 });
 
-$router->get('/invoices/(\d+)', function($id) {
-    (new InvoicesController)->getInvoice($id);
+$router->get('/invoices/(\d+)', function ($id) use ($invoicesController) {
+    $invoicesController->getInvoice($id);
 });
 
-$router->post('/invoices', function() {
+$router->post('/invoices', function () use ($invoicesController) {
     $data = json_decode(file_get_contents('php://input'), true);
-    (new InvoicesController)->createInvoice($data);
+    $invoicesController->createInvoice($data);
 });
 
-$router->get('/contacts', function() {
-    (new ContactsController)->getAllContacts();
+$router->get('/contacts', function () use ($contactsController) {
+    $contactsController->getAllContacts();
 });
 
-$router->get('/contacts/(\d+)', function($id) {
-    (new ContactsController)->getContact($id);
+$router->get('/contacts/(\d+)', function ($id) use ($contactsController) {
+    $contactsController->getContact($id);
 });
 
-$router->post('/contacts', function() {
+$router->post('/contacts', function () use ($contactsController) {
     $data = json_decode(file_get_contents('php://input'), true);
-    (new ContactsController)->createContact($data);
+    $contactsController->createContact($data);
 });
 
-$router->get('/companies', function() {
-    (new CompaniesController)->getAllCompanies();
+$router->get('/companies', function () use ($companiesController) {
+    $companiesController->getAllCompanies();
 });
 
-$router->get('/companies/(\d+)', function($id) {
-    (new CompaniesController)->getCompany($id);
+$router->get('/companies/(\d+)', function ($id) use ($companiesController) {
+    $companiesController->getCompany($id);
 });
 
-$router->post('/companies', function() {
+$router->post('/companies', function () use ($companiesController) {
     $data = json_decode(file_get_contents('php://input'), true);
-    (new CompaniesController)->createCompany($data);
+    $companiesController->createCompany($data);
 });
 
-$router->get('/companies/(\d+)/show', function($id) {
-    (new ShowController)->getCompaniesById($id);
-    (new ShowController)->getFirstFiveInvoices();
-    (new ShowController)->getFirstFiveContacts();
-
+$router->get('/companies/(\d+)/show', function ($id) use ($showController) {
+    $showController->getCompaniesById($id);
+    $showController->getFirstFiveInvoices();
+    $showController->getFirstFiveContacts();
 });
 
 $router->run();
-

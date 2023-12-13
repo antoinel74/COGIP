@@ -7,11 +7,11 @@ use App\Model\CompaniesModel;
 
 class CompaniesController extends Controller
 {
-    private $CompaniesModel;
+    private $companiesModel;
 
     public function __construct()
     {
-        $this->CompaniesModel = new CompaniesModel;
+        $this->companiesModel = new CompaniesModel;
     }
 
     public function getAllCompanies()
@@ -19,16 +19,16 @@ class CompaniesController extends Controller
         $this->companiesModel->getAllCompanies();
     }
 
-    public function getCompany($id)
+    public function getCompanyById($id)
     {
-        $this->companiesModel->getCompany($id);
+        $this->companiesModel->getCompanyById($id);
     }
     
-    public function getCompanieslastFive()
+    public function getFirstFiveCompanies()
     {
-        $this->CompaniesModel->getCompanieslastFive();
+        $this->companiesModel->getFirstFiveCompanies();
     }
-
+    
     public function createCompany($data)
     {
         $this->companiesModel->createCompany($data);
