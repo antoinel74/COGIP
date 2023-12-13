@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { fetchAllDatas } from "../api/fetchAllDatas";
 
 const useShowCompanyStore = create((set) => ({
-  companyDetails: [],
+  companyDetails: null,
 
   fetchCompanyById: async (companyId) => {
     const companyDetails = await fetchAllDatas({

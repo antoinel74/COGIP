@@ -14,9 +14,7 @@ export const Card = () => {
           <h2 className="text-lg w-full font-bold py-4 px-6">titre</h2>
         </div>
         <span className="border-t block border-solid border-black w-11/12 mb-4 mt-2"></span>
-        <div>
-          {/* table component import */}
-        </div>
+        <div>{/* table component import */}</div>
       </div>
       {/* card dashboard pile */}
       <div className="max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-8">
@@ -34,15 +32,13 @@ export const Card = () => {
           <h2 className="text-lg w-full font-bold py-4 px-6">titre</h2>
         </div>
         <span className="border-t block border-solid border-black w-11/12 mb-4 mt-2"></span>
-        <div>
-          {/* Form component import */}
-        </div>
+        <div>{/* Form component import */}</div>
       </div>
       {/* contact card */}
       <div className="max-w-sm bg-slate-200 rounded-xl flex  justify-center items-center p-4">
         {/* dynamic title component import */}
         <div className="w-32 h-32">
-          <Avatar name="Henry George"></Avatar>
+          <Avatar name="Henry" height="h-5" width="w-5"></Avatar>
         </div>
         <div className="flex flex-col text-4xl font-black	">
           <p>Henry</p>
