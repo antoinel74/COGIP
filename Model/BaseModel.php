@@ -17,5 +17,4 @@ class BaseModel
 
         return $this->connection;
     }
-    
 }

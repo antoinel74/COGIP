@@ -20,8 +20,8 @@ $showController = new ShowController();
 
 $router->get('/', function () use ($welcomeController) {
     $welcomeController->getFirstFiveCompanies();
-    $welcomeController->getFirstFiveContacts();
     $welcomeController->getFirstFiveInvoices();
+    $welcomeController->getFirstFiveContacts();
 });
 
 $router->get('/invoices', function () use ($invoicesController) {
