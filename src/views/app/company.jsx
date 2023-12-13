@@ -44,7 +44,11 @@ export const Company = () => {
             <h2 className="text-3xl md:text-4xl font-extrabold my-6">
               Contact People
             </h2>
-            <Card />
+            <div className="flex gap-4 flex-wrap">
+              {companyDetails.Contacts.map((contact) => (
+                <Card key={contact.id} name={contact.name} />
+              ))}
+            </div>
           </div>
         </div>
       ) : (
