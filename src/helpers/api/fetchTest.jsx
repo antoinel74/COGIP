@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
-import Avatar from "../../components/Avatar";
-import { Divider } from "../../components/Divider";
 
-export const Companies = () => {
+const fetchTest = () => {
   useEffect(() => {
     const fetchInvoices = async () => {
       try {
         const response = await fetch(
-          "https://cogip-api-8d6f281a9687.herokuapp.com/invoices/last/"
+          "https://cogip-api-8d6f281a9687.herokuapp.com/invoices/last"
         );
         if (!response.ok) {
           throw new Error("Network response was not ok.");
@@ -21,12 +19,6 @@ export const Companies = () => {
 
     fetchInvoices();
   }, []);
-
-  return (
-    <div>
-      <Divider />
-      companies
-      <Avatar name="Afrit" />
-    </div>
-  );
 };
+
+export default fetchTest;
