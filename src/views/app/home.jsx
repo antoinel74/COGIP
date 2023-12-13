@@ -1,13 +1,11 @@
 import React from "react";
 import Hero from "../../components/Hero";
 import { Divider } from "../../components/Divider";
-import { Table } from "../../components/Table";
+
 import { List } from "../../components/List";
 import { Table2 } from "../../components/Table2";
 
-
 const Home = () => {
-
   return (
     <div className="w-full">
       <Hero
@@ -17,9 +15,8 @@ const Home = () => {
       />
       <Divider />
       <div className="mx-6">
-        <Table title="Last invoices" />
+        <Table2 title="Last invoices" />
       </div>
-      <Table2 pageType="application" dataType="invoices" />
       <Hero
         text="WORK BETTER IN YOUR COMPANY"
         img="/img/manager-2.png"
