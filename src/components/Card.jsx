@@ -4,8 +4,8 @@ import { Table2 } from "./Table2";
  *cart
  */
 export const Card = ({ cardType, dataType, name, avatarURL }) => {
-  if(cardType === "contact"){
-  const words = name.split(" ");
+  if (cardType === "contact") {
+    const words = name ? name.split(" ") : [];
   }
 
   let cardStyle;
@@ -26,7 +26,9 @@ export const Card = ({ cardType, dataType, name, avatarURL }) => {
   return (
     <>
       <div className={cardStyle}>
-      {cardType === "table" && <Table2 pageType="admin_panel" dataType={dataType} />}
+        {cardType === "table" && (
+          <Table2 pageType="admin_panel" dataType={dataType} />
+        )}
         {cardType === "pile" && (
           <>
             <div>
@@ -37,20 +39,22 @@ export const Card = ({ cardType, dataType, name, avatarURL }) => {
         )}
         {cardType === "contact" && (
           <>
-        <div className="w-20 h-20 flex items-center">
-          <img src={avatarURL} className="h-16 w-16 bg-red-600 rounded-full" />
-        </div>
-        <h3 className="flex flex-col">
-          {words.map((word, index) => (
-            <span key={index} className="text-xl font-bold">
-              {word}
-            </span>
-          ))}
-        </h3>
-        </>
+            <div className="w-20 h-20 flex items-center">
+              <img
+                src={avatarURL}
+                className="h-16 w-16 bg-red-600 rounded-full"
+              />
+            </div>
+            <h3 className="flex flex-col">
+              {words.map((word, index) => (
+                <span key={index} className="text-xl font-bold">
+                  {word}
+                </span>
+              ))}
+            </h3>
+          </>
         )}
       </div>
     </>
   );
 };
-
