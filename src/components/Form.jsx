@@ -20,9 +20,12 @@ export const Form = () => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    const parsedValue =
+      name === "price" || name === "id_company" ? parseInt(value, 10) : value;
     setFormInputs({
       ...formInputs,
-      [name]: value,
+      [name]: parsedValue,
     });
   };
 
@@ -53,7 +56,7 @@ export const Form = () => {
         type="text"
         placeholder="References"
         name="ref"
-        value={formInputs.references}
+        value={formInputs.ref}
         onChange={handleInputChange}
         className="bg-gray-100 p-2 rounded focus:outline-gray-400"
       />

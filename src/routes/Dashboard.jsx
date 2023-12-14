@@ -7,6 +7,7 @@ const Dashboard = () => {
   return (
     <main>
       <DashboardNav />
+      <DashboardHero name="Henry" url="Dashboard/" />
       <Outlet />
     </main>
   );
