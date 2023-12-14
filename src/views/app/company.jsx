@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { List } from "../../components/List";
 import { Divider } from "../../components/Divider";
 import { Title } from "../../components/Title";
-import { useShowCompanyStore } from "../../helpers/store/useShowCompanyStore";
+import { fetchCompanyById } from "../../helpers/api/fetchAllDatas";
 import { Loader } from "../../components/Loader";
 import { Card } from "../../components/Card";
 import { Link } from "react-router-dom";
@@ -11,16 +11,17 @@ import { transformIPFSUrl } from "../../helpers/transformIPFSUrl";
 
 export const Company = () => {
   const { companyId } = useParams();
-  const { companyDetails, fetchCompanyById } = useShowCompanyStore();
+  const [companyDetails, setCompanyDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchCompany = async () => {
-      await fetchCompanyById(companyId);
+      const data = await fetchCompanyById("companies", companyId);
+      setCompanyDetails(data);
       setLoading(false);
     };
     fetchCompany();
-  }, [companyId, fetchCompanyById]);
+  }, [companyId]);
 
   /*   useEffect(() => {
     console.log("Company Details:", companyDetails);
@@ -52,7 +53,7 @@ export const Company = () => {
               {companyDetails.Contacts.map((contact) => (
                 <Link to={`/contacts/${contact.id}`} key={contact.id}>
                   <Card
-                  cardType={"contact"}
+                    cardType={"contact"}
                     name={contact.name}
                     avatarURL={transformIPFSUrl(contact.Avatar)}
                   />
