@@ -29,7 +29,10 @@ $router->get('/', function () use ($welcomeController) {
 
 // Routes pour les factures
 $router->get('/invoices', function () use ($invoicesController) {
-    $invoicesController->getAllInvoices();
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $perPage = isset($_GET['per_page']) ? (int)$_GET['per_page'] : 10;
+
+    $invoicesController->getAllInvoices($page, $perPage);
 });
 
 $router->get('/invoices/(\d+)', function ($id) use ($invoicesController) {
@@ -44,8 +47,12 @@ $router->post('/invoices', function () use ($invoicesController) {
 
 // Routes pour les contacts
 $router->get('/contacts', function () use ($contactsController) {
-    $contactsController->getAllContacts();
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $perPage = isset($_GET['per_page']) ? (int)$_GET['per_page'] : 10;
+
+    $contactsController->getAllContacts($page, $perPage);
 });
+
 
 $router->get('/contacts/(\d+)', function ($id) use ($contactsController) {
     $contactsController->getContactById($id);

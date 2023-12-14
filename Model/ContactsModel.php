@@ -5,25 +5,27 @@ declare(strict_types=1);
 namespace App\Model;
 
 use App\Model\BaseModel;
+use App\Utilities\Pagination;
 use PDO;
 use Exception;
 
 class ContactsModel extends BaseModel
 {
-    public function getAllContacts()
+    public function getAllContacts(Pagination $pagination)
     {
         try {
-            $stmt = $this->getConnection()->prepare("SELECT contacts.*, companies.name AS company_name 
-            FROM contacts 
-            INNER JOIN companies ON contacts.company_id = companies.id
-            ORDER BY id DESC");
-            $stmt->execute();
-            $contacts = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $contacts = array('All_Contacts' => $contacts);
-            header('Content-Type: application/json');
-            echo json_encode($contacts, JSON_PRETTY_PRINT);
+            $query = "SELECT contacts.*, companies.name AS company_name 
+                FROM contacts 
+                INNER JOIN companies ON contacts.company_id = companies.id
+                ORDER BY id DESC";
+
+            $results = $this->paginate($query, [], $pagination->getCurrentPage(), $pagination->getItemsPerPage());
+
+            $Contacts = ['all_contacts' => $results];
+
+            return $Contacts;
         } catch (Exception $e) {
-            echo $e->getMessage();
+            throw new Exception($e->getMessage());
         }
     }
 

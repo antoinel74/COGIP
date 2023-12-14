@@ -4,7 +4,8 @@ namespace App\Controllers;
 
 use App\Core\Controller;
 use App\Model\InvoicesModel;
-use PDO;
+use App\Utilities\Pagination;
+use Exception;
 
 class InvoicesController extends Controller
 {
@@ -12,12 +13,30 @@ class InvoicesController extends Controller
 
     public function __construct()
     {
-        $this->invoicesModel = new InvoicesModel;
+        $this->invoicesModel = new InvoicesModel();
     }
 
     public function getAllInvoices()
     {
-        $this->invoicesModel->getAllInvoices();
+        try {
+            // Récupérez les paramètres de pagination depuis l'URL
+            $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+            $perPage = isset($_GET['per_page']) ? (int)$_GET['per_page'] : 10;
+
+            // Créez une instance de Pagination
+            $pagination = new Pagination($perPage, $page);
+
+            // Utilisez le modèle pour récupérer toutes les factures paginées
+            $results = $this->invoicesModel->getAllInvoices($pagination);
+
+            // Envoyez les résultats au format JSON
+            header('Content-Type: application/json');
+            echo json_encode($results, JSON_PRETTY_PRINT);
+        } catch (Exception $e) {
+            // Gérez les erreurs ici
+            http_response_code(500); // Code d'erreur interne du serveur
+            echo json_encode(['error' => $e->getMessage()]);
+        }
     }
 
     public function getInvoiceById($id)
