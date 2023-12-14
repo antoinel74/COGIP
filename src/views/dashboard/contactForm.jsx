@@ -6,7 +6,7 @@ import { Form } from "../../components/Form";
 export const ContactForm = () => {
   return (
     <div>
-      <Form />
+      <Form formType={"contact"} />
     </div>
   );
 };

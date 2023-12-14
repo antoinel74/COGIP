@@ -6,7 +6,7 @@ import { Form } from "../../components/Form";
 export const CompaniesForm = () => {
   return (
     <div>
-      <Form />
+      <Form formType={"company"} />
     </div>
   );
 };
