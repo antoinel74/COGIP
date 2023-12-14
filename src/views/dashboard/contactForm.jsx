@@ -6,6 +6,7 @@ import { Form } from "../../components/Form";
 export const ContactForm = () => {
   return (
     <div>
+      <DashboardHero name="Henry" url="Dashboard/new-contact" />
       <Form formType={"contact"} />
     </div>
   );
