@@ -22,7 +22,9 @@ export const Company = () => {
     fetchCompany();
   }, [companyId, fetchCompanyById]);
 
-  console.log(companyDetails);
+  /*   useEffect(() => {
+    console.log("Company Details:", companyDetails);
+  }, [companyDetails]); */
 
   return (
     <section>

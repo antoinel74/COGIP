@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { fetchAllDatas } from "../api/fetchAllDatas";
 
 const useShowCompanyStore = () => {
@@ -15,7 +15,6 @@ const useShowCompanyStore = () => {
       console.error("Error fetching company details:", error);
     }
   };
-
   return { companyDetails, fetchCompanyById };
 };
 
