@@ -14,7 +14,7 @@ import { InvoicesForm } from "./views/dashboard/invoiceForm.jsx";
 import { CompaniesForm } from "./views/dashboard/companiesForm.jsx";
 import { ContactForm } from "./views/dashboard/contactForm.jsx";
 import { Company } from "./views/app/company.jsx";
-/* import { Contact } from "./views/app/contact.jsx"; */
+import { Contact } from "./views/app/contact.jsx";
 
 const router = createBrowserRouter([
   {
@@ -42,10 +42,10 @@ const router = createBrowserRouter([
         path: "contacts",
         element: <Contacts />,
       },
-      /*       {
-        path: "contacts/:contactsId",
+      {
+        path: "contacts/:contactId",
         element: <Contact />,
-      }, */
+      },
     ],
   },
   {

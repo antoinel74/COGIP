@@ -1,60 +1,56 @@
-// import React, { useState, useEffect } from "react";
-// import { useParams } from "react-router-dom";
-// import { List } from "../../components/List";
-// import { Divider } from "../../components/Divider";
-// import { Title } from "../../components/Title";
-// import { fetchAllData } from "../../helpers/api/fetchAllData";
-// import Avatar from "../../components/Avatar";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { List } from "../../components/List";
+import { Divider } from "../../components/Divider";
+import { Title } from "../../components/Title";
+import { useShowContactStore } from "../../helpers/store/useShowContactStore";
+import { Loader } from "../../components/Loader";
+import { transformIPFSUrl } from "../../helpers/transformIPFSUrl";
 
-// export const Contact = () => {
-//   const { contactsId } = useParams();
-//   const [contactData, setContactData] = useState(null);
+export const Contact = () => {
+  const { contactId } = useParams();
+  const { contactDetails, fetchContactById } = useShowContactStore();
+  const [loading, setLoading] = useState(true);
 
-//   useEffect(() => {
-//     const fetchAllContacts = async () => {
-//       try {
-//         const contacts = await fetchAllData("contacts");
-//         const contact = contacts.find(
-//           (contact) => contact.id === parseInt(contactsId)
-//         );
-//         setContactData(contact);
-//       } catch (error) {
-//         console.error("Error fetching contacts", error);
-//       }
-//     };
-//     fetchAllContacts();
-//   }, [contactsId]);
+  useEffect(() => {
+    const fetchCompany = async () => {
+      await fetchContactById(contactId);
+      setLoading(false);
+    };
+    fetchCompany();
+  }, [contactId, fetchContactById]);
 
-//   return (
-//     <section>
-//       <Divider />
-//       {contactData ? (
-//         <div className="mt-4 p-6 md:px-48 flex justify-around md:justify-between">
-//           <div>
-//             <Title
-//               title={`${contactData.name} ${contactData.firstname}`}
-//               uppercase={false}
-//             />
-//             <List
-//               label1="Contact"
-//               label2="Phone"
-//               label3="Mail"
-//               label4="Company"
-//               data1={`${contactData.firstname} ${contactData.name}`}
-//               data2={contactData.phone}
-//               data3={contactData.email}
-//               data4={contactData.company_name}
-//             />
-//           </div>
-//           <Avatar
-//             name={contactData.name}
-//             height="h-16 md:h-[240px]"
-//             width="w-16 md:w-[240px]"
-//           />
-//         </div>
-//       ) : (
-//         <div>Contact not found !</div>
-//       )}
-//     </section>
-//   );
-// };
+  console.log(contactDetails);
+
+  return (
+    <section>
+      <Divider />
+      {loading ? (
+        <Loader />
+      ) : contactDetails ? (
+        <div className="mt-4 p-6 md:px-48 flex flex-col-reverse md:flex-row justify-around md:justify-between">
+          <div className="mt-4">
+            <Title title={contactDetails.name} uppercase={false} />
+            <List
+              label1="Contact"
+              label2="Phone"
+              label3="Mail"
+              label4="Company"
+              data1={contactDetails.name}
+              data2={contactDetails.phone}
+              data3={contactDetails.email}
+              data4={contactDetails.company_name}
+            />
+          </div>
+          <img
+            src={transformIPFSUrl(contactDetails.Avatar)}
+            alt="avatar"
+            className="h-16 w-16 md:h-[200px] md:w-[200px] lg:h-[240px] lg:w-[240px] rounded-full"
+          />
+        </div>
+      ) : (
+        <div>Contact not found !</div>
+      )}
+    </section>
+  );
+};
