@@ -4,9 +4,7 @@ import { Table2 } from "./Table2";
  *cart
  */
 export const Card = ({ cardType, dataType, name, avatarURL }) => {
-  if (cardType === "contact") {
-    const words = name ? name.split(" ") : [];
-  }
+  const words = name ? name.split(" ") : [];
 
   let cardStyle;
 
