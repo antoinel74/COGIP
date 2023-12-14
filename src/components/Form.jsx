@@ -10,7 +10,7 @@ export const Form = () => {
     fetchAllCompanies();
     setLoading(false);
   }, [fetchAllCompanies]);
-  /*   console.log(allCompaniesDetails); */
+  console.log(allCompaniesDetails);
 
   const [formInputs, setFormInputs] = useState({
     references: "",
@@ -31,8 +31,9 @@ export const Form = () => {
 
     try {
       const response = await postNewInvoice(formInputs);
+      console.log(response);
       console.log("New invoice created successfully :", response);
-      setFormData({
+      setFormInputs({
         references: "",
         price: "",
         selectedCompany: "",
