@@ -59,8 +59,12 @@ $router->post('/contacts', function () use ($contactsController) {
 
 // Routes pour les entreprises
 $router->get('/companies', function () use ($companiesController) {
-    $companiesController->getAllCompanies();
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
+    $perPage = isset($_GET['per_page']) ? (int)$_GET['per_page'] : 10;
+
+    $companiesController->getAllCompanies($page, $perPage);
 });
+
 
 $router->get('/companies/(\d+)', function ($id) use ($companiesController) {
     $companiesController->getCompanyById($id);

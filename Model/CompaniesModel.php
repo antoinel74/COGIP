@@ -5,29 +5,30 @@ declare(strict_types=1);
 namespace App\Model;
 
 use App\Model\BaseModel;
+use App\Utilities\Pagination;
 use PDO;
 use Exception;
 
 class CompaniesModel extends BaseModel
 {
-    public function getAllCompanies()
+    public function getAllCompanies(Pagination $pagination)
     {
         try {
-            $connection = $this->getConnection();
-            $stmt = $this->connection->prepare("SELECT companies.*, types.name AS type_name 
-            FROM companies 
-            INNER JOIN types ON companies.type_id = types.id
-            ORDER BY id DESC");
-            $stmt->execute();
-            $companies = $stmt->fetchAll(PDO::FETCH_ASSOC); 
-            $companies = array('all_companies' => $companies);
-            header('Content-Type: application/json');
-            echo json_encode($companies, JSON_PRETTY_PRINT);
+            $query = "SELECT companies.*, types.name AS type_name 
+                FROM companies 
+                INNER JOIN types ON companies.type_id = types.id
+                ORDER BY id DESC";
+
+            $results = $this->paginate($query, [], $pagination->getCurrentPage(), $pagination->getItemsPerPage());
+
+            $companies = ['all_companies' => $results];
+
+            return $companies;
         } catch (Exception $e) {
-            echo $e->getMessage();
+            throw new Exception($e->getMessage());
         }
     }
-
+    
     public function getFirstFiveCompanies()
     {
         try {
@@ -45,7 +46,6 @@ class CompaniesModel extends BaseModel
             echo $e->getMessage();
         }
     }
-
 
     public function getCompanyById($id)
     {
