@@ -1,23 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Hero from "../../components/Hero";
 import { Divider } from "../../components/Divider";
 import { Table2 } from "../../components/Table2";
-import { Loader } from "../../components/Loader";
-import { useTableStore } from "../../helpers/store/useTableStore";
+
 const Home = () => {
-  const { lastInvoices, lastCompanies, lastContacts, fetchLastData } = useTableStore();
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      await fetchLastData("invoices");
-      setLoading(false);
-    };
-
-    fetchData();
-  }, [fetchLastData]);
-  console.log(lastInvoices);
-
   return (
     <div className="w-full">
       <Hero
@@ -27,8 +13,13 @@ const Home = () => {
       />
       <Divider />
       <div className="mx-6">
-        {loading ? <Loader /> : <Table2 data={lastInvoices}
-        pageType="application" dataType="invoices" />}
+        <Table2 pageType="application" dataType="invoices" />
+      </div>
+      <div className="mx-6">
+        <Table2 pageType="application" dataType="contacts" />
+      </div>
+      <div className="mx-6">
+        <Table2 pageType="application" dataType="companies" />
       </div>
       <Hero
         text="WORK BETTER IN YOUR COMPANY"

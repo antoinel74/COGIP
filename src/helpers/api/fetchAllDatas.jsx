@@ -16,3 +16,15 @@ export const fetchAllDatas = async ({ dataType, options }) => {
       throw error;
     }
   };
+
+  export const fetchLastDatas = async (dataType) => {
+    console.log("fetchLastDatas", dataType);
+    const data = await fetchAllDatas({dataType, options: "/last"});
+    return data;
+};
+
+export const fetchDataPages = async (dataType, page) => {
+  console.log("fetchDataPages", dataType, page);
+  const data = await fetchAllDatas({dataType, options: `?page=${page}`});
+  return data;
+};

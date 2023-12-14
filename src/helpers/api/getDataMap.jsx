@@ -12,9 +12,9 @@ export const getDataMap = (pageType) => {
       };
     } else {
       return {
-        companies: ["name", "tva", "country", "type", "created_at"],
+        companies: ["name", "tva", "country", "type_id", "created_at"],
         invoices: ["ref", "due_date", "company_name", "created_at"],
-        contacts: ["name", "phone", "email", "company_name", "created_at"],
+        contacts: ["name", "phone", "email", "company_id", "created_at"],
       };
     }
   };
