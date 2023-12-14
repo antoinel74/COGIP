@@ -1,32 +1,67 @@
 import React from "react";
 import Avatar from "./Avatar";
+import { Table2 } from "./Table2";
 /**
  * Premier essai de carte pour les tableau du dashboard restructuration a voir le titre devra surement etre passer par le tableau la séparation également a retravailler
  *
  */
-export const Card = ({ name }) => {
-  const words = name.split(" ");
+export const Card = ({ cardType, dataType}) => {
+  let cardStyle;
+
+  switch (cardType) {
+    case "table":
+      cardStyle =
+        "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4";
+      break;
+    case "contact":
+      cardStyle =
+        "max-w-sm bg-slate-100 rounded-xl flex justify-center items-center px-4";
+      break;
+    case "pile":
+      cardStyle =
+        "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-8";
+  }
   return (
     <>
-      <div className="max-w-sm bg-slate-100 rounded-xl flex justify-center items-center px-4">
-        <div className="w-20 h-20 flex items-center">
-          <Avatar
-            name="Henry"
-            height="h-16"
-            width="w-16 bg-red-600 rounded-full"
-          ></Avatar>
-        </div>
-        <h3 className="flex flex-col">
-          {words.map((word, index) => (
-            <span key={index} className="text-xl font-bold">
-              {word}
-            </span>
-          ))}
-        </h3>
+      <div className={cardStyle}>
+        {cardType === "table" && <Table2 pageType="admin_panel" dataType={dataType} />}
+        {cardType === "pile" && (
+          <>
+            <div>
+              <h2 className="text-lg w-full font-bold py-4 px-6">Statistics</h2>
+            </div>
+            <div className="w-full flex gap-x-11 justify-center">piles</div>
+          </>
+        )}
+        {cardType === "contact" && (
+          <>
+            <div>a voir avec antoine</div>
+          </>
+        )}
       </div>
     </>
   );
 };
+
+{
+  /* <div className="max-w-sm bg-slate-100 rounded-xl flex justify-center items-center px-4">
+<div className="w-20 h-20 flex items-center">
+  <Avatar
+    name="Henry"
+    height="h-16"
+    width="w-16 bg-red-600 rounded-full"
+  ></Avatar>
+</div>
+<h3 className="flex flex-col">
+  {words.map((word, index) => (
+    <span key={index} className="text-xl font-bold">
+      {word}
+    </span>
+  ))}
+</h3>
+</div> */
+}
+
 // import React from "react";
 // import Avatar from "./Avatar";
 // /**
