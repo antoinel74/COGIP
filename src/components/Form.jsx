@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { allCompanies } from "../helpers/store/allCompanies";
+import { allCompanies } from "../helpers/api/allCompanies";
 import { postNewInvoice } from "../helpers/api/postNewInvoice";
 
 export const Form = () => {
