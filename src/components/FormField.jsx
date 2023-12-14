@@ -1,3 +1,8 @@
+{
+  /* un formField entiérement réutilisable, on aura peut-être besoin de faire une meilleure condition sur le select
+   lorsqu'on on attaquera les updates mais pour le moment ça passe  */
+}
+
 export const FormField = ({
   type,
   placeholder,
