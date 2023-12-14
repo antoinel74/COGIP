@@ -52,6 +52,7 @@ export const Company = () => {
               {companyDetails.Contacts.map((contact) => (
                 <Link to={`/contacts/${contact.id}`} key={contact.id}>
                   <Card
+                  cardType={"contact"}
                     name={contact.name}
                     avatarURL={transformIPFSUrl(contact.Avatar)}
                   />
