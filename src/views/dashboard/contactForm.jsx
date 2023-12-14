@@ -8,7 +8,7 @@ export const ContactForm = () => {
     <div>
       <DashboardNav />
       <div className="p-8">
-        <DashboardHero name="Henry" url="Dashboard/" />
+        <DashboardHero name="Henry" url="dashboard/new-contact" />
         <Form />
       </div>
     </div>

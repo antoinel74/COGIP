@@ -1,9 +1,10 @@
 import React from "react";
-import Avatar from "./Avatar";
+
 /**
  * Premier essai de carte pour les tableau du dashboard restructuration a voir le titre devra surement etre passer par le tableau la séparation également a retravailler
  *
  */
+
 export const Card = ({ name, avatarURL }) => {
   const words = name.split(" ");
   return (

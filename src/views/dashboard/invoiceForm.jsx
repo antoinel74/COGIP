@@ -8,7 +8,7 @@ export const InvoicesForm = () => {
     <div>
       <DashboardNav />
       <div className="p-8">
-        <DashboardHero name="Henry" url="Dashboard/" />
+        <DashboardHero name="Henry" url="dashboard/new-invoice" />
         <Form />
       </div>
     </div>
