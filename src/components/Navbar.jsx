@@ -39,10 +39,7 @@ export const Navbar = () => {
     <div>
       <nav className="relative justify-between px-4 py-4 flex items-center bg-[#f9de4e]">
         <div className="flex items-center w-full lg:w-auto">
-          <Link
-            to="/"
-            className="text-3xl font-bold leading-none mr-6 lg:mr-20"
-          >
+          <Link to="/" className="text-3xl font-bold leading-none mr-6 lg:mr-20">
             COGIP
           </Link>
           <button
@@ -68,26 +65,16 @@ export const Navbar = () => {
         >
           Sign up
         </a>
-        <Link
-          to="dashboard"
-          className="hidden lg:inline-block py-2 px-6 text-sm transition duration-200 font-semibold"
-        >
+        <Link to="dashboard" className="hidden lg:inline-block py-2 px-6 text-sm transition duration-200 font-semibold">
           Login
         </Link>
       </nav>
 
       {/* MOBILE / SIDE BAR */}
-      <div
-        className={`navbar-menu ${
-          isMenuOpen ? "block" : "hidden"
-        } navbar-menu relative z-50`}
-      >
+      <div className={`navbar-menu ${isMenuOpen ? "block" : "hidden"} navbar-menu relative z-50`}>
         <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-4 bg-white border-r overflow-y-auto">
           <div className="flex items-center mb-8">
-            <Link
-              to="/"
-              className="mr-auto text-3xl font-bold leading-none pl-4"
-            >
+            <Link to="/" className="mr-auto text-3xl font-bold leading-none pl-4">
               COGIP
             </Link>
             <button className="navbar-close" onClick={toggleMenu}>

@@ -26,8 +26,7 @@ export const Form = ({ formType }) => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
-    const parsedValue =
-      name === "price" || name === "id_company" ? parseInt(value, 10) : value;
+    const parsedValue = name === "price" || name === "id_company" ? parseInt(value, 10) : value;
     setFormInputs({
       ...formInputs,
       [name]: parsedValue,
@@ -86,10 +85,7 @@ export const Form = ({ formType }) => {
       : [];
 
   return (
-    <form
-      className="flex flex-col gap-6 relative w-5/6 ml-auto right-0"
-      onSubmit={handleSubmit}
-    >
+    <form className="flex flex-col gap-6 relative w-5/6 ml-auto right-0" onSubmit={handleSubmit}>
       {fields.map((field, index) => (
         <FormField
           key={index}
@@ -98,9 +94,7 @@ export const Form = ({ formType }) => {
           name={field.name}
           value={formInputs[field.name]}
           onChange={handleInputChange}
-          options={
-            field.type === "select" ? allCompaniesDetails?.companies || [] : []
-          }
+          options={field.type === "select" ? allCompaniesDetails?.companies || [] : []}
         />
       ))}
       <input

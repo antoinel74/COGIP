@@ -46,17 +46,11 @@ export const Company = () => {
             data4={companyDetails.Companies.type_name}
           />
           <div className="border-t border-gray-100 my-6">
-            <h2 className="text-3xl md:text-4xl font-extrabold my-6">
-              Contact People
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-extrabold my-6">Contact People</h2>
             <div className="flex gap-4 flex-wrap">
               {companyDetails.Contacts.map((contact) => (
                 <Link to={`/contacts/${contact.id}`} key={contact.id}>
-                  <Card
-                    cardType={"contact"}
-                    name={contact.name}
-                    avatarURL={transformIPFSUrl(contact.Avatar)}
-                  />
+                  <Card cardType={"contact"} name={contact.name} avatarURL={transformIPFSUrl(contact.Avatar)} />
                 </Link>
               ))}
             </div>
