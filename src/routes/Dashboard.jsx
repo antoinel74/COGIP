@@ -5,9 +5,12 @@ import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <main>
+    <main className="bg-slate-100">
       <DashboardNav />
-      <Outlet />
+      <DashboardHero name="Henry" url="Dashboard/" />
+      <div className="relative w-5/6 ml-auto right-0 mb-4">
+        <Outlet />
+      </div>
     </main>
   );
 };

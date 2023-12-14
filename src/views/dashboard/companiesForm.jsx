@@ -6,11 +6,7 @@ import { Form } from "../../components/Form";
 export const CompaniesForm = () => {
   return (
     <div>
-      <DashboardNav />
-      <div className="p-8">
-        <DashboardHero name="Henry" url="Dashboard/" />
-        <Form />
-      </div>
+      <Form />
     </div>
   );
 };

@@ -13,16 +13,19 @@ export const Form = () => {
   console.log(allCompaniesDetails);
 
   const [formInputs, setFormInputs] = useState({
-    references: "",
+    ref: "",
     price: "",
-    selectedCompany: "",
+    id_company: "",
   });
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+
+    const parsedValue =
+      name === "price" || name === "id_company" ? parseInt(value, 10) : value;
     setFormInputs({
       ...formInputs,
-      [name]: value,
+      [name]: parsedValue,
     });
   };
 
@@ -30,13 +33,14 @@ export const Form = () => {
     e.preventDefault();
 
     try {
+      console.log("Form Inputs:", formInputs);
       const response = await postNewInvoice(formInputs);
       console.log(response);
       console.log("New invoice created successfully :", response);
       setFormInputs({
-        references: "",
+        ref: "",
         price: "",
-        selectedCompany: "",
+        id_company: "",
       });
     } catch (error) {
       console.error("ERR - Invoice not created:", error);
@@ -51,8 +55,8 @@ export const Form = () => {
       <input
         type="text"
         placeholder="References"
-        name="references"
-        value={formInputs.references}
+        name="ref"
+        value={formInputs.ref}
         onChange={handleInputChange}
         className="bg-gray-100 p-2 rounded focus:outline-gray-400"
       />
@@ -66,8 +70,8 @@ export const Form = () => {
       />
       <select
         className="bg-gray-100 p-2 rounded focus:outline-gray-400"
-        name="selectedCompany"
-        value={formInputs.selectedCompany}
+        name="id_company"
+        value={formInputs.id_company}
         onChange={handleInputChange}
       >
         <option value="" disabled hidden>
