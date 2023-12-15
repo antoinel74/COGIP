@@ -3,22 +3,22 @@ import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
-    <div className="w-full px-6 md:px-20 sticky top-[100vh]">
-      <span className="hidden md:block border-t border-solid border-[#f9de4e] w-full my-2 md:my-12 opacity-40"></span>
+    <footer className="w-full px-6 md:px-6 py-2 sticky top-[100vh]">
+      <span className="block border-t border-solid border-[#f9de4e] w-full my-2 md:my-12 opacity-40"></span>
       <div className="flex pt-4">
         <div className="w-1/2 hidden md:block">
           <a href="#" alt="home" className="border-4 border-yellow-400 text-5xl p-3 font-extrabold">
             COGIP
           </a>
         </div>
-        <div className="hidden md:flex w-full md:w-1/2 flex-col py-6 gap-8 mb-6">
+        <div className="flex w-full md:w-1/2 flex-col py-6 gap-8 mb-6 text-sm">
           <p className="flex">
             <img src="/icons/location-dot-solid.svg" className="h-5 w-5 mr-2" />
             <a href="#" className="text-gray-600">
               Square des Martyrs, 6000 Charleroi
             </a>
           </p>
-          <p className="hidden md:flex">
+          <p className="flex">
             <img src="/icons/phone-solid.svg" className="h-5 w-5 mr-2" />
             <a href="#" className="mr-4 text-gray-600">
               (123) 456-7890
@@ -49,9 +49,9 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-      <span className="border-t block border-solid border-gray-200 my-2 w-full"></span>
-      <div className="w-full flex justify-between opacity-40 text-sm">
-        <ul className="gap-4 uppercase py-4 flex-wrap hidden md:flex">
+      <span className="border-t block border-solid border-gray-200 mt-2 w-full"></span>
+      <div className="w-full flex justify-between opacity-40 text-sm py-2">
+        <ul className="gap-4 uppercase flex-wrap hidden md:flex">
           <li>
             <Link to={`/`}>Home</Link>
           </li>
@@ -68,8 +68,8 @@ export const Footer = () => {
             <a href="#">PRIVACY POLICY</a>
           </li>
         </ul>
-        <p className="my-4">Copyright © 2023 • COGIP</p>
+        <p>Copyright © 2023 • COGIP</p>
       </div>
-    </div>
+    </footer>
   );
 };
