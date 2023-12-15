@@ -8,10 +8,11 @@ import { Loader } from "../../components/Loader";
 import { Card } from "../../components/Card";
 import { Link } from "react-router-dom";
 import { transformIPFSUrl } from "../../helpers/transformIPFSUrl";
+import { Table2 } from "../../components/Table2";
 
 export const Company = () => {
   const { companyId } = useParams();
-  const [companyDetails, setCompanyDetails] = useState(null);
+  const [companyDetails, setCompanyDetails] = useState([]);
   const [loading, setLoading] = useState(true);
 
   
@@ -25,9 +26,9 @@ export const Company = () => {
     fetchCompany();
   }, [companyId]);
 
-  //    useEffect(() => {
-  //   console.log("Company Details:", companyDetails);
-  // }, [companyDetails]); 
+     useEffect(() => {
+    console.log("Company Details:", companyDetails);
+  }, [companyDetails]); 
 
   return (
     <section>
@@ -61,6 +62,7 @@ export const Company = () => {
       ) : (
         <div>Company not found !</div>
       )}
+     <Table2 pageType="company" dataType="invoices" data={companyDetails.Invoices} />
     </section>
   );
 };

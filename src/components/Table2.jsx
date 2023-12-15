@@ -88,7 +88,7 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
       <table className="min-w-full table-fixed">
         <thead
           className={
-            pageType === "application" || pageType === "show"
+            pageType === "application" || pageType === "show" || pageType === "company"
               ? "bg-[#f9de4e]"
               : ""
           }
@@ -113,7 +113,7 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
             <tr
               key={item.id}
               className={
-                pageType === "application" || pageType === "show"
+                pageType === "application" || pageType === "show" || pageType === "company"
                   ? index % 2 === 1
                     ? "bg-gray-200"
                     : ""
