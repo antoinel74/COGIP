@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { allCompanies } from "../helpers/api/allCompanies";
-import { postNewInvoice } from "../helpers/api/postNewInvoice";
+import { postNewCompany, postNewContact, postNewInvoice } from "../helpers/api/postData";
 import { FormField } from "./FormField";
 
 export const Form = ({ formType }) => {
@@ -8,7 +8,7 @@ export const Form = ({ formType }) => {
 
   useEffect(() => {
     fetchAllCompanies();
-  }, [fetchAllCompanies]);
+  }, []);
   /*   console.log(allCompaniesDetails); */
 
   const [formInputs, setFormInputs] = useState({
@@ -25,25 +25,42 @@ export const Form = ({ formType }) => {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
-    const parsedValue = name === "price" || name === "id_company" ? parseInt(value, 10) : value;
     setFormInputs({
       ...formInputs,
-      [name]: parsedValue,
+      [name]: value,
     });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log("Form Inputs:", formInputs);
       if (formType === "invoice") {
-        const response = await postNewInvoice(formInputs);
-        console.log("New invoice created successfully :", response);
+        const payload = {
+          ref: formInputs.ref,
+          price: formInputs.price,
+          id_company: formInputs.id_company,
+        };
+        const response = await postNewInvoice(payload);
+        console.log("New invoice created successfully:", response);
       } else if (formType === "contact") {
-        // POST NEW CONTACT
+        const payload = {
+          name: formInputs.name,
+          phone: formInputs.phone,
+          email: formInputs.email,
+          company_id: formInputs.id_company,
+        };
+        const response = await postNewContact(payload);
+        console.log("New contact created successfully:", response);
       } else if (formType === "company") {
-        // POST NEW COMPANY
+        const payload = {
+          name: formInputs.name,
+          country: formInputs.country,
+          tva: formInputs.tva,
+          type_name: formInputs.type_name,
+        };
+        console.log(payload);
+        const response = await postNewCompany(payload);
+        console.log("New company created successfully:", response);
       }
       setFormInputs({
         ref: "",
@@ -85,7 +102,7 @@ export const Form = ({ formType }) => {
       : [];
 
   return (
-    <form className="flex flex-col gap-6 relative w-5/6 ml-auto right-0" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-6 ml-auto" onSubmit={handleSubmit}>
       {fields.map((field, index) => (
         <FormField
           key={index}
