@@ -27,8 +27,8 @@ const getHeadersMap = (pageType) => {
  * @param {string} pageType - Page types parameters corresponding to "admin_panel", "application", "show"
  * @returns
  */
-export const Table2 = ({ pageType, dataType }) => {
-  const [data, setData] = useState([]);
+export const Table2 = ({ pageType, dataType, data: dataProp }) => {
+  const [data, setData] = React.useState(dataProp || []);
   const [pagination, setPagination] = useState({});
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -41,6 +41,11 @@ export const Table2 = ({ pageType, dataType }) => {
 
   useEffect(() => {
     setLoading(true);
+    if (dataProp) {
+      setData(dataProp);
+      setLoading(false);
+      return;
+    }
     (async () => {
       const fetchFunction = fetchFunctions[pageType];
       const response = page
@@ -55,7 +60,7 @@ export const Table2 = ({ pageType, dataType }) => {
       }
       setLoading(false);
     })();
-  }, [dataType, pageType, page]);
+  }, [dataType, pageType, page, dataProp]);
   
 
   console.log(data);

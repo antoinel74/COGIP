@@ -1,4 +1,5 @@
 import React from "react";
+import { fetchDataPages } from "../helpers/api/fetchAllDatas";
 
 /**
  * pills passing the data parameter to display different colors depending on the data and display the according data as well 

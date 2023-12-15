@@ -14,6 +14,8 @@ export const Company = () => {
   const { companyDetails, fetchCompanyById } = useShowCompanyStore();
   const [loading, setLoading] = useState(true);
 
+  
+
   useEffect(() => {
     const fetchCompany = async () => {
       await fetchCompanyById(companyId);
@@ -22,9 +24,9 @@ export const Company = () => {
     fetchCompany();
   }, [companyId, fetchCompanyById]);
 
-  /*   useEffect(() => {
-    console.log("Company Details:", companyDetails);
-  }, [companyDetails]); */
+  //    useEffect(() => {
+  //   console.log("Company Details:", companyDetails);
+  // }, [companyDetails]); 
 
   return (
     <section>
@@ -52,7 +54,7 @@ export const Company = () => {
               {companyDetails.Contacts.map((contact) => (
                 <Link to={`/contacts/${contact.id}`} key={contact.id}>
                   <Card
-                  cardType={"contact"}
+                    cardType={"contact"}
                     name={contact.name}
                     avatarURL={transformIPFSUrl(contact.Avatar)}
                   />
