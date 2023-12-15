@@ -3,24 +3,25 @@ import { useParams } from "react-router-dom";
 import { List } from "../../components/List";
 import { Divider } from "../../components/Divider";
 import { Title } from "../../components/Title";
-import { useShowContactStore } from "../../helpers/store/useShowContactStore";
+import { fetchContactById } from "../../helpers/api/fetchAllDatas";
 import { Loader } from "../../components/Loader";
 import { transformIPFSUrl } from "../../helpers/transformIPFSUrl";
 
 export const Contact = () => {
   const { contactId } = useParams();
-  const { contactDetails, fetchContactById } = useShowContactStore();
+  const [contactDetails, setContactDetails] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const fetchCompany = async () => {
-      await fetchContactById(contactId);
+    const fetchContact = async () => {
+      const data = await fetchContactById("contacts", contactId);
+      setContactDetails(data);
       setLoading(false);
     };
-    fetchCompany();
-  }, [contactId, fetchContactById]);
-
-  console.log(contactDetails);
+    fetchContact();
+  }, [contactId]);
+  /* 
+  console.log(contactDetails); */
 
   return (
     <section>

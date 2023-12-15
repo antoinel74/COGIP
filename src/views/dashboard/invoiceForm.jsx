@@ -6,7 +6,8 @@ import { Form } from "../../components/Form";
 export const InvoicesForm = () => {
   return (
     <div>
-      <Form />
+      <DashboardHero name="Henry" url="Dashboard/new-invoice" />
+      <Form formType={"invoice"} />
     </div>
   );
 };
