@@ -7,7 +7,6 @@ const Dashboard = () => {
     <main className="bg-slate-100 min-h-screen py-6 min-w-full">
       <DashboardNav />
       <div className="px-6 w-5/6 ml-auto">
-        {" "}
         <Outlet />
       </div>
     </main>
