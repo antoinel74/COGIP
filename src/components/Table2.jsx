@@ -63,7 +63,7 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
   }, [dataType, pageType, page, dataProp]);
   
 
-  console.log(data);
+  console.log(pagination);
   const headersMap = getHeadersMap(pageType);
   const headers = headersMap[dataType] || [];
 

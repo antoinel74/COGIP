@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { fetchDataPages } from "../helpers/api/fetchAllDatas";
 
 /**
@@ -6,9 +6,18 @@ import { fetchDataPages } from "../helpers/api/fetchAllDatas";
  * @param {string} data contacts invoices companies 
  * @returns {Pile} pile component to display the total number of corresponding data
  */
-const Pile = ({ data }) => {
-  const getClass = (data) => {
-    switch (data) {
+export const Pile = ({ dataType }) => {
+  const [data, setData]= useState([]);
+
+  useEffect(() => {
+    (async () => {
+      const response = await fetchDataPages(dataType, 1);
+      setData(response.data.pagination);
+    })();
+  }, [dataType]); 
+ console.log(data);
+  const getClass = (dataType) => {
+    switch (dataType) {
       case "contacts":
         return "bg-blue-200";
       case "invoices":
@@ -20,15 +29,14 @@ const Pile = ({ data }) => {
     }
   };
 
-  const pileClass = getClass(data);
+  const pileClass = getClass(dataType);
 
   return (
-    <div className={`rounded-full text-white font-bold h-20 w-20 flex flex-col items-center justify-center ${pileClass}`}>
-        {/* 245 to be displayed as something like data.total */}
-        <div>245</div>
-        {data && <div>{data}</div>}
+    <div className={`rounded-full text-white font-bold h-24 w-24 flex flex-col items-center justify-center ${pileClass}`}>
+        <div>{data.totalItems}</div>
+        <div>{dataType}</div>
     </div>
   );
 };
 
-export default Pile;
+

@@ -1,13 +1,13 @@
 import React from "react";
 import { Table2 } from "./Table2";
-
-
+import { Pile } from "./Pile";
+import { Form } from "./Form";
 
 
 /**
  *cart
  */
-export const Card = ({ cardType, dataType, name, avatarURL }) => {
+export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
   const words = name ? name.split(" ") : [];
 
   let cardStyle;
@@ -24,6 +24,10 @@ export const Card = ({ cardType, dataType, name, avatarURL }) => {
     case "pile":
       cardStyle =
         "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-8";
+      break;
+    case "form":
+      cardStyle =
+        "max-w-6xl bg-white rounded-md flex flex-col justify-center items-start p-8";
   }
   return (
     <>
@@ -36,7 +40,11 @@ export const Card = ({ cardType, dataType, name, avatarURL }) => {
             <div>
               <h2 className="text-lg w-full font-bold py-4 px-6">Statistics</h2>
             </div>
-            <div className="w-full flex gap-x-11 justify-center">piles</div>
+            <div className="w-full flex gap-x-11 justify-center">
+              <Pile dataType="invoices"/>
+              <Pile dataType="contacts"/>
+              <Pile dataType="companies"/>
+            </div>
           </>
         )}
         {cardType === "contact" && (
@@ -54,6 +62,14 @@ export const Card = ({ cardType, dataType, name, avatarURL }) => {
                 </span>
               ))}
             </h3>
+          </>
+        )}
+        {cardType === "form" && (
+          <>
+          <div>
+          <h2 className="text-lg w-full font-bold py-4 px-6">New {formType}</h2>
+          </div>
+          <Form formType={formType} />
           </>
         )}
       </div>

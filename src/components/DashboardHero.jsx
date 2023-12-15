@@ -2,7 +2,7 @@ import React from "react";
 
 export const DashboardHero = ({ name, url }) => {
   return (
-    <div className="relative w-5/6 ml-auto right-0 mb-4">
+    <div className="relative mb-4">
       <div className="h-1/2 pb-8">
         <h1 className="text-3xl font-extrabold">Dashboard</h1>
         <span className="text-sm">{url}</span>
