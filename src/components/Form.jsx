@@ -74,7 +74,7 @@ export const Form = ({ formType }) => {
         type_name: "",
       });
     } catch (error) {
-      console.error("ERR - Invoice not created:", error);
+      console.error("ERR - Entry not created:", error);
     }
   };
 
