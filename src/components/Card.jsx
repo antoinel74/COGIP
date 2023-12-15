@@ -13,14 +13,13 @@ export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
 
   switch (cardType) {
     case "table":
-      cardStyle =
-        "w-[95%] bg-white rounded-md flex flex-col justify-center items-start p-4";
+      cardStyle = "w-full bg-white rounded-md flex flex-col justify-center items-start p-4";
       break;
     case "contact":
       cardStyle = "max-w-sm bg-slate-100 rounded-xl flex justify-center items-center px-4";
       break;
     case "pile":
-      cardStyle ="w-[95%] h-1/4 bg-white rounded-md flex flex-col justify-center items-start p-8";
+      cardStyle = "w-full h-1/4 bg-white rounded-md flex flex-col justify-center items-start p-8";
       break;
     case "form":
       cardStyle = "w-full bg-white rounded-md flex flex-col justify-center items-start p-8";
