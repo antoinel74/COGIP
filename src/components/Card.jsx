@@ -15,15 +15,14 @@ export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
   switch (cardType) {
     case "table":
       cardStyle =
-        "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4";
+        "w-[95%] bg-white rounded-md flex flex-col justify-center items-start p-4";
       break;
     case "contact":
       cardStyle =
         "max-w-sm bg-slate-100 rounded-xl flex justify-center items-center px-4";
       break;
     case "pile":
-      cardStyle =
-        "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-8";
+      cardStyle ="w-[95%] h-1/4 bg-white rounded-md flex flex-col justify-center items-start p-8";
       break;
     case "form":
       cardStyle =

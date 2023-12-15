@@ -6,11 +6,15 @@ export const DashboardHome = () => {
   return (
     <>
       <DashboardHero name="Henry" url="Dashboard/" />
-      <div className="flex flex-wrap gap-4 py-4 relative w-5/6 ml-auto right-0">
-        <Card cardType="pile" />
-        <Card cardType="table" dataType="company" />
-        <Card cardType="table" dataType="contact" />
-        <Card cardType="table" dataType="invoices" />
+      <div className="flex flex-wrap w-full">
+        <div className="flex flex-col gap-10 w-full lg:w-1/2">
+          <Card cardType="pile" />
+          <Card cardType="table" dataType="companies" />
+        </div>
+        <div className="flex flex-col gap-10 w-full lg:w-1/2">
+          <Card cardType="table" dataType="contacts" />
+          <Card cardType="table" dataType="invoices" />
+        </div>
       </div>
     </>
   );

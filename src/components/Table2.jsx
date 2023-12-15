@@ -73,7 +73,7 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
   return (
     <div
       className={`overflow-x-auto mx-auto flex flex-col ${
-        pageType === "admin_panel" ? "max-w-xl" : "max-w-6xl"
+        pageType === "admin_panel" ? "w-full" : "max-w-6xl"
       }`}
     >
       <div>
