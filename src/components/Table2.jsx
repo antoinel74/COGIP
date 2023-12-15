@@ -81,7 +81,8 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
       {pageType === "admin_panel" && (
         <span className="border-t block border-solid border-black w-11/12 mb-4 mt-2"></span>
       )}
-      {pageType === "show" && <Searchbar />}
+      <div className="w-full flex justify-end">{pageType === "show" && <Searchbar />}</div>
+
       <table className="min-w-full table-fixed">
         <thead
           className={pageType === "application" || pageType === "show" || pageType === "company" ? "bg-[#f9de4e]" : ""}
