@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { allCompanies } from "../helpers/api/allCompanies";
-import { postNewInvoice } from "../helpers/api/postNewInvoice";
+import { postNewCompany, postNewContact, postNewInvoice } from "../helpers/api/postData";
 import { FormField } from "./FormField";
 
 export const Form = ({ formType }) => {
@@ -37,13 +37,20 @@ export const Form = ({ formType }) => {
     e.preventDefault();
     try {
       console.log("Form Inputs:", formInputs);
+
       if (formType === "invoice") {
         const response = await postNewInvoice(formInputs);
         console.log("New invoice created successfully :", response);
       } else if (formType === "contact") {
-        // POST NEW CONTACT
+        const contactPayload = {
+          ...formInputs,
+          company_id: formInputs.id_company,
+        };
+        const response = await postNewContact(contactPayload);
+        console.log("New contact created successfully :", response);
       } else if (formType === "company") {
-        // POST NEW COMPANY
+        const response = await postNewCompany(formInputs);
+        console.log("New company created successfully: ", response);
       }
       setFormInputs({
         ref: "",
