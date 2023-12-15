@@ -74,7 +74,7 @@ export const Form = ({ formType }) => {
         type_name: "",
       });
     } catch (error) {
-      console.error("ERR - Invoice not created:", error);
+      console.error("ERR - Entry not created:", error);
     }
   };
 
@@ -102,7 +102,7 @@ export const Form = ({ formType }) => {
       : [];
 
   return (
-    <form className="flex flex-col gap-6 ml-auto" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-6 w-full ml-auto" onSubmit={handleSubmit}>
       {fields.map((field, index) => (
         <FormField
           key={index}

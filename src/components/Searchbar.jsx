@@ -8,7 +8,7 @@ export const Searchbar = () => {
         className="p-1 border border-solid border-gray-200 rounded focus:outline-gray-400"
         placeholder="Search"
       />
-      <input type="submit" className="opacity-0" />
+      <input type="submit" className="hidden" />
     </form>
   );
 };

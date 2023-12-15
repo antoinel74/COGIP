@@ -2,13 +2,10 @@ import React from "react";
 
 export const Loader = () => {
   return (
-    <div
-      role="status"
-      className="w-full py-12 flex justify-center items-center"
-    >
+    <div role="status" className="w-full py-12 flex justify-center items-center">
       <svg
         aria-hidden="true"
-        className="inline h-6 w-6 md:w-8 md:h-8 text-gray-200 animate-spin fill-[#f9de4e]"
+        className="inline h-6 w-6 md:w-8 md:h-8 text-gray-200 animate-spin fill-gray-400"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

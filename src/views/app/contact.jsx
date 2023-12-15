@@ -20,8 +20,8 @@ export const Contact = () => {
     };
     fetchContact();
   }, [contactId]);
-  /* 
-  console.log(contactDetails); */
+
+  /* console.log(contactDetails); */
 
   return (
     <section>

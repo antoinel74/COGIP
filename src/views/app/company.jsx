@@ -15,8 +15,6 @@ export const Company = () => {
   const [companyDetails, setCompanyDetails] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  
-
   useEffect(() => {
     const fetchCompany = async () => {
       const data = await fetchCompanyById("companies", companyId);
@@ -26,12 +24,12 @@ export const Company = () => {
     fetchCompany();
   }, [companyId]);
 
-     useEffect(() => {
+  useEffect(() => {
     console.log("Company Details:", companyDetails);
-  }, [companyDetails]); 
+  }, [companyDetails]);
 
   return (
-    <section>
+    <section className="w-full">
       <Divider />
       {loading ? (
         <Loader />
@@ -62,7 +60,7 @@ export const Company = () => {
       ) : (
         <div>Company not found !</div>
       )}
-     <Table2 pageType="company" dataType="invoices" data={companyDetails.Invoices} />
+      <Table2 pageType="company" dataType="invoices" data={companyDetails.Invoices} />
     </section>
   );
 };
