@@ -46,7 +46,7 @@ export const Company = () => {
             data3={companyDetails.Companies.country}
             data4={companyDetails.Companies.type_name}
           />
-          <div className="border-t border-gray-100 my-6">
+          <div className="relative border-y my-6 pb-12">
             <h2 className="text-3xl md:text-4xl font-extrabold my-6">Contact People</h2>
             <div className="flex gap-4 flex-wrap">
               {companyDetails.Contacts.map((contact) => (
@@ -55,6 +55,12 @@ export const Company = () => {
                 </Link>
               ))}
             </div>
+            <figure className="w-full">
+              <img
+                src="/img/small-manager-1.png"
+                className="h-[60px] w-auto absolute right-0 top-1/3 -mr-6 md:-mr-12"
+              />
+            </figure>
           </div>
         </div>
       ) : (
