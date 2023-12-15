@@ -102,7 +102,7 @@ export const Form = ({ formType }) => {
       : [];
 
   return (
-    <form className="flex flex-col gap-6 ml-auto" onSubmit={handleSubmit}>
+    <form className="flex flex-col gap-6 w-full ml-auto" onSubmit={handleSubmit}>
       {fields.map((field, index) => (
         <FormField
           key={index}

@@ -3,7 +3,6 @@ import { Table2 } from "./Table2";
 import { Pile } from "./Pile";
 import { Form } from "./Form";
 
-
 /**
  *cart
  */
@@ -14,46 +13,37 @@ export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
 
   switch (cardType) {
     case "table":
-      cardStyle =
-        "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4";
+      cardStyle = "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-4";
       break;
     case "contact":
-      cardStyle =
-        "max-w-sm bg-slate-100 rounded-xl flex justify-center items-center px-4";
+      cardStyle = "max-w-sm bg-slate-100 rounded-xl flex justify-center items-center px-4";
       break;
     case "pile":
-      cardStyle =
-        "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-8";
+      cardStyle = "max-w-xl bg-white rounded-md flex flex-col justify-center items-start p-8";
       break;
     case "form":
-      cardStyle =
-        "max-w-6xl bg-white rounded-md flex flex-col justify-center items-start p-8";
+      cardStyle = "w-full bg-white rounded-md flex flex-col justify-center items-start p-8";
   }
   return (
     <>
       <div className={cardStyle}>
-        {cardType === "table" && (
-          <Table2 pageType="admin_panel" dataType={dataType} />
-        )}
+        {cardType === "table" && <Table2 pageType="admin_panel" dataType={dataType} />}
         {cardType === "pile" && (
           <>
             <div>
               <h2 className="text-lg w-full font-bold py-4 px-6">Statistics</h2>
             </div>
             <div className="w-full flex gap-x-11 justify-center">
-              <Pile dataType="invoices"/>
-              <Pile dataType="contacts"/>
-              <Pile dataType="companies"/>
+              <Pile dataType="invoices" />
+              <Pile dataType="contacts" />
+              <Pile dataType="companies" />
             </div>
           </>
         )}
         {cardType === "contact" && (
           <>
             <div className="w-20 h-20 flex items-center">
-              <img
-                src={avatarURL}
-                className="h-16 w-16 bg-red-600 rounded-full"
-              />
+              <img src={avatarURL} className="h-16 w-16 bg-red-600 rounded-full" />
             </div>
             <h3 className="flex flex-col">
               {words.map((word, index) => (
@@ -66,10 +56,10 @@ export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
         )}
         {cardType === "form" && (
           <>
-          <div>
-          <h2 className="text-lg w-full font-bold py-4 px-6">New {formType}</h2>
-          </div>
-          <Form formType={formType} />
+            <div>
+              <h2 className="text-lg w-full font-bold py-4 px-6">New {formType}</h2>
+            </div>
+            <Form formType={formType} />
           </>
         )}
       </div>
