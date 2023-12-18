@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Login } from "./Login/Login";
 
 export const Navbar = () => {
   const location = useLocation();
@@ -62,7 +61,7 @@ export const Navbar = () => {
         </div>
         <Link
           className="hidden font-semibold lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 rounded-xl transition duration-200"
-          to="login"
+          to="signup"
         >
           Sign up
         </Link>
@@ -95,7 +94,7 @@ export const Navbar = () => {
           <div className="mt-auto">
             <div className="pt-6 px-2">
               <Link
-                to="login"
+                to="signup"
                 className="block mb-3 p-3 leading-loose text-xs text-center font-semibold leading-none hover:bg-gray-100 rounded-xl"
               >
                 Sign up
