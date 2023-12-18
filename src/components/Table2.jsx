@@ -157,12 +157,9 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
                 ))}
                 {pageType === "admin_panel" && (
                   <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                    <img
-                      onClick={() => handleDelete(dataType, item.id)}
-                      src="../../public/icons/icons8-delete-button.svg"
-                      alt="delete me"
-                      className="cursor-pointer filter grayscale hover:filter-none"
-                    />
+                    <button onClick={() => handleDelete(dataType, item.id)}>
+                      X
+                    </button>
                   </td>
                 )}
               </tr>
