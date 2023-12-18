@@ -2,14 +2,33 @@ import React, { useState, useEffect } from "react";
 import { allCompanies } from "../helpers/api/allCompanies";
 import { postNewCompany, postNewContact, postNewInvoice } from "../helpers/api/postData";
 import { FormField } from "./FormField";
+import { fetchAllDatas } from "../helpers/api/fetchAllDatas";
 
 export const Form = ({ formType }) => {
   const { allCompaniesDetails, fetchAllCompanies } = allCompanies();
 
   useEffect(() => {
-    fetchAllCompanies();
-  }, []);
+    if (formType !== "company") {
+      fetchAllCompanies();
+    }
+  }, [formType, fetchAllCompanies]);
   /*   console.log(allCompaniesDetails); */
+
+  const [companyOptions, setCompanyOptions] = useState([]);
+
+  useEffect(() => {
+    const fetchDataForSelect = async () => {
+      if (formType === "company") {
+        const fetchedData = await fetchAllDatas({ dataType: "types", options: "" });
+        const fetchedOptions = fetchedData.data || [];
+        setCompanyOptions(fetchedOptions);
+      } else {
+        setCompanyOptions(allCompaniesDetails?.companies || []);
+      }
+    };
+    fetchDataForSelect();
+  }, [formType, allCompaniesDetails]);
+  /*   console.log(companyOptions); */
 
   const [formInputs, setFormInputs] = useState({
     ref: "",
@@ -56,7 +75,7 @@ export const Form = ({ formType }) => {
           name: formInputs.name,
           country: formInputs.country,
           tva: formInputs.tva,
-          type_name: formInputs.type_name,
+          type_id: formInputs.type_id,
         };
         console.log(payload);
         const response = await postNewCompany(payload);
@@ -97,7 +116,7 @@ export const Form = ({ formType }) => {
           { name: "name", placeholder: "Company Name", type: "text" },
           { name: "country", placeholder: "Country", type: "text" },
           { name: "tva", placeholder: "TVA", type: "number" },
-          { name: "type_name", placeholder: "Type", type: "text" },
+          { name: "type_id", placeholder: "Select type", type: "select" },
         ]
       : [];
 
@@ -111,7 +130,7 @@ export const Form = ({ formType }) => {
           name={field.name}
           value={formInputs[field.name]}
           onChange={handleInputChange}
-          options={field.type === "select" ? allCompaniesDetails?.companies || [] : []}
+          options={field.type === "select" ? companyOptions || [] : []}
         />
       ))}
       <input
