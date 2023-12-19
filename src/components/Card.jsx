@@ -16,10 +16,10 @@ export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
       cardStyle = "w-full bg-white rounded-md flex flex-col justify-center items-start p-4";
       break;
     case "contact":
-      cardStyle = "max-w-sm bg-slate-100 rounded-xl flex justify-center items-center px-4";
+      cardStyle = "max-w-sm bg-slate-100 rounded-xl flex items-center px-4";
       break;
     case "pile":
-      cardStyle = "w-full h-1/4 bg-white rounded-md flex flex-col justify-center items-start p-8";
+      cardStyle = "w-full bg-white rounded-md flex flex-col justify-center items-start p-6";
       break;
     case "form":
       cardStyle = "w-full bg-white rounded-md flex flex-col justify-center items-start p-8";
@@ -31,9 +31,9 @@ export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
         {cardType === "pile" && (
           <>
             <div>
-              <h2 className="text-lg w-full font-bold py-4 px-6">Statistics</h2>
+              <h2 className="text-xl w-full font-bold">Statistics</h2>
             </div>
-            <div className="w-full flex gap-x-11 justify-center">
+            <div className="w-full flex md:flex-row gap-x-11 justify-center p-6">
               <Pile dataType="invoices" />
               <Pile dataType="contacts" />
               <Pile dataType="companies" />
@@ -56,8 +56,8 @@ export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
         )}
         {cardType === "form" && (
           <>
-            <div>
-              <h2 className="text-lg w-full font-bold py-4 px-6">New {formType}</h2>
+            <div className="border-b border-gray-200 w-full mb-4">
+              <h2 className="text-lg w-full font-bold mb-2">New {formType}</h2>
             </div>
             <Form formType={formType} />
           </>

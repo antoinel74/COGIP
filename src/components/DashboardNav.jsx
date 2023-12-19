@@ -5,7 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 const NavbarItem = ({ link, text, icon }) => {
   const location = useLocation();
   const isActive = location.pathname === link;
-  const activeStyle = isActive ? "border-r-4 border-[#9798d6]" : "";
+  const activeStyle = isActive ? "border-r-4 border-[#9798d6] font-semibold" : "";
   return (
     <li className="mb-1">
       <Link
@@ -22,8 +22,9 @@ const NavbarItem = ({ link, text, icon }) => {
 const ProfileSection = () => (
   <div className="flex flex-col items-center border-b border-gray-200 py-6 my-4 md:my-8">
     <Avatar name="Henry" width="w-8 md:w-12" height="h-8 md:h-12" />
-    <h3 className="text-2xl py-4 text-center font-semibold hidden md:block">
-      Henry Georges
+    <h3 className="flex flex-col text-2xl py-4 text-center font-bold hidden md:block">
+      <span>Henry </span>
+      <span className="block -mt-2">Georges</span>
     </h3>
   </div>
 );
@@ -58,16 +59,11 @@ export const DashboardNav = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-1/6 max-w-sm bg-white border-r overflow-y-auto">
+    <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-[15%] max-w-sm bg-white border-r overflow-y-auto">
       <ProfileSection />
       <ul>
         {menuItems.map((item, index) => (
-          <NavbarItem
-            key={index}
-            link={item.link}
-            text={item.text}
-            icon={item.icon}
-          />
+          <NavbarItem key={index} link={item.link} text={item.text} icon={item.icon} />
         ))}
       </ul>
       <FooterSection />
