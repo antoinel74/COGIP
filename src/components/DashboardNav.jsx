@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "./Avatar";
+import { Avatar } from "./Avatar";
 import { Link, useLocation } from "react-router-dom";
 
 const NavbarItem = ({ link, text, icon }) => {
