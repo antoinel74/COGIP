@@ -15,6 +15,8 @@ import { CompaniesForm } from "./views/dashboard/companiesForm.jsx";
 import { ContactForm } from "./views/dashboard/contactForm.jsx";
 import { Company } from "./views/app/company.jsx";
 import { Contact } from "./views/app/contact.jsx";
+import { Login } from "./components/Login/Login.jsx";
+import { Signup } from "./components/Signup/Signup.jsx";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,14 @@ const router = createBrowserRouter([
       {
         path: "contacts/:contactId",
         element: <Contact />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
       },
     ],
   },

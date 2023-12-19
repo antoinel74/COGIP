@@ -59,12 +59,12 @@ export const Navbar = () => {
             {renderedMenuItems}
           </ul>
         </div>
-        <a
+        <Link
           className="hidden font-semibold lg:inline-block lg:ml-auto lg:mr-3 py-2 px-6 bg-gray-50 hover:bg-gray-100 text-sm text-gray-900 rounded-xl transition duration-200"
-          href="#"
+          to="signup"
         >
           Sign up
-        </a>
+        </Link>
         <Link to="dashboard" className="hidden lg:inline-block py-2 px-6 text-sm transition duration-200 font-semibold">
           Login
         </Link>
@@ -93,12 +93,12 @@ export const Navbar = () => {
           <ul className="pl-6">{renderedMenuItems}</ul>
           <div className="mt-auto">
             <div className="pt-6 px-2">
-              <a
+              <Link
+                to="signup"
                 className="block mb-3 p-3 leading-loose text-xs text-center font-semibold leading-none hover:bg-gray-100 rounded-xl"
-                href="#"
               >
                 Sign up
-              </a>
+              </Link>
               <Link
                 to="dashboard"
                 className="block mb-3 p-3 leading-loose text-xs text-center font-semibold bg-[#f9de4e] hover:bg-yellow-200 rounded-xl"
