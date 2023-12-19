@@ -136,7 +136,7 @@ export const Form = ({ formType }) => {
       <input
         type="submit"
         value="Save"
-        className="p-2 bg-[#9798d6] hover:opacity-70 text-white font-semibold cursor-pointer rounded"
+        className="p-2 bg-[#9798d6] hover:opacity-70 text-white font-semibold cursor-pointer rounded text-left"
       />
     </form>
   );

@@ -4,9 +4,9 @@ import { Outlet } from "react-router-dom";
 
 const Dashboard = () => {
   return (
-    <main className="bg-slate-100 min-h-screen py-6 w-full">
+    <main className="bg-slate-100 min-h-screen py-6">
       <DashboardNav />
-      <div className="px-6 w-5/6 ml-auto">
+      <div className="px-6 w-[85%] ml-auto">
         <Outlet />
       </div>
     </main>
