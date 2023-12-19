@@ -141,7 +141,9 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
                     key={key}
                     className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap"
                   >
-                    {dataType === "companies" && key === "name" ? (
+                    {pageType === "admin_panel"  ? (
+                       <input type="text" value={item[key]} />
+                   ) : dataType === "companies" && key === "name" ? (
                       <Link to={`/companies/${item.id}`}>{item[key]}</Link>
                     ) : (dataType === "contacts" || dataType === "invoices") &&
                       key === "company_name" ? (
