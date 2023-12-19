@@ -6,6 +6,7 @@ import { Form } from "./Form";
 /**
  *cart
  */
+
 export const Card = ({ cardType, dataType, name, avatarURL, formType }) => {
   const words = name ? name.split(" ") : [];
 
