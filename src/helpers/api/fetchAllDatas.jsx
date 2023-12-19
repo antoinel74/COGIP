@@ -38,3 +38,8 @@ export const fetchContactById = async (dataType, contactId) => {
   const data = await fetchAllDatas({ dataType, options: `/${contactId}` });
   return data;
 };
+
+export const fetchEveryCompanies = async (dataType) => {
+  const data = await fetchAllDatas({ dataType: "fetchcompanies" });
+  return data;
+}
