@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { getDataMap } from "../helpers/api/getDataMap";
-import { fetchLastDatas, fetchDataPages } from "../helpers/api/fetchAllDatas";
+import {
+  fetchLastDatas,
+  fetchDataPages,
+  fetchEveryCompanies,
+} from "../helpers/api/fetchAllDatas";
 import { Searchbar } from "./Searchbar";
 import { Loader } from "./Loader";
 import { Link } from "react-router-dom";
 import { deleteDatas } from "../helpers/api/deleteDatas";
+import { editDatas } from "../helpers/api/editDatas";
 
 const getHeadersMap = (pageType) => {
   if (pageType === "admin_panel") {
@@ -35,6 +40,7 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [refresh, setRefresh] = useState(false);
+  const [companies, setCompanies] = useState([]);
 
   const toggleRefresh = () => setRefresh(!refresh);
 
@@ -66,6 +72,15 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
       setLoading(false);
     })();
   }, [dataType, pageType, page, dataProp, refresh]);
+
+  useEffect(() => {
+    if (pageType === "admin_panel") {
+      (async () => {
+        const response = await fetchEveryCompanies();
+        setCompanies(response.data);
+      })();
+    }
+  }, [pageType]);
 
   console.log(data);
   const headersMap = getHeadersMap(pageType);
@@ -141,9 +156,20 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
                     key={key}
                     className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap"
                   >
-                    {pageType === "admin_panel"  ? (
-                       <input type="text" value={item[key]} />
-                   ) : dataType === "companies" && key === "name" ? (
+                    {pageType === "admin_panel" &&
+                    (dataType === "contacts" ||
+                      dataType === "companies" ||
+                      (dataType === "invoices" && key === "ref")) ? (
+                      <input type="text" defaultValue={item[key]} />
+                    ) : pageType === "admin_panel" && dataType === "invoices" && key === "company_name" ? (
+                      <select name="company" id="" value={companies.find(company => company.name === item[key])?.id || ''}>
+                        {companies.map((company) => (
+                          <option key={company.id} value={company.id}>
+                            {company.name}
+                          </option>
+                        ))}
+                      </select>
+                    ) : dataType === "companies" && key === "name" ? (
                       <Link to={`/companies/${item.id}`}>{item[key]}</Link>
                     ) : (dataType === "contacts" || dataType === "invoices") &&
                       key === "company_name" ? (
