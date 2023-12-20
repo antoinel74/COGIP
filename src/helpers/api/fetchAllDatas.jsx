@@ -10,6 +10,7 @@ export const fetchAllDatas = async ({ dataType, options }) => {
     const path = buildApiEndpoint(dataType, options);
     const response = await fetch(path);
     const data = await response.json();
+    // console.log("fetchAllDatas", dataType, data);
     return data;
   } catch (error) {
     console.error(error);
@@ -18,13 +19,11 @@ export const fetchAllDatas = async ({ dataType, options }) => {
 };
 
 export const fetchLastDatas = async (dataType) => {
-  console.log("fetchLastDatas", dataType);
   const data = await fetchAllDatas({ dataType, options: "/last" });
   return data;
 };
 
 export const fetchDataPages = async (dataType, page) => {
-  console.log("fetchDataPages", dataType, page);
   const data = await fetchAllDatas({ dataType, options: `?page=${page}` });
   return data;
 };

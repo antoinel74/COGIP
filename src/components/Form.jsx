@@ -51,7 +51,7 @@ export const Form = ({ formType }) => {
           id_company: formInputs.id_company,
         };
         const response = await postNewInvoice(payload);
-        console.log("New invoice created successfully:", response);
+        // console.log("New invoice created successfully:", response);
       } else if (formType === "contact") {
         const payload = {
           name: formInputs.name,
@@ -60,7 +60,7 @@ export const Form = ({ formType }) => {
           company_id: formInputs.id_company,
         };
         const response = await postNewContact(payload);
-        console.log("New contact created successfully:", response);
+        // console.log("New contact created successfully:", response);
       } else if (formType === "company") {
         const payload = {
           name: formInputs.name,
@@ -68,9 +68,9 @@ export const Form = ({ formType }) => {
           tva: formInputs.tva,
           type_id: formInputs.type_id,
         };
-        console.log(payload);
+        // console.log(payload);
         const response = await postNewCompany(payload);
-        console.log("New company created successfully:", response);
+        // console.log("New company created successfully:", response);
       }
       setFormInputs({
         ref: "",

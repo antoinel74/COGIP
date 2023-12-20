@@ -63,7 +63,6 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
       const response = page
         ? await fetchFunction(dataType, page)
         : await fetchFunction(dataType);
-      console.log(response);
       if (pageType === "show") {
         setData(response.data[dataType]);
         setPagination(response.data.pagination);
@@ -83,7 +82,6 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
     }
   }, [pageType]);
 
-  console.log(data);
   const headersMap = getHeadersMap(pageType);
   const headers = headersMap[dataType] || [];
 
@@ -108,7 +106,7 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
     }));
   };
 const handleSubmit = (id, e) => {
-  console.log("handleSubmit called");
+  // console.log("handleSubmit called");
   const newValue = values[id];
   if (newValue) {
     editDatas(dataType, id, newValue)

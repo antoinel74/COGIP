@@ -25,7 +25,7 @@ export const Company = () => {
   }, [companyId]);
 
   useEffect(() => {
-    console.log("Company Details:", companyDetails);
+    // console.log("Company Details:", companyDetails);
   }, [companyDetails]);
 
   return (

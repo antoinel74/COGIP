@@ -15,7 +15,7 @@ export const Pile = ({ dataType }) => {
       setData(response.data.pagination);
     })();
   }, [dataType]);
-  console.log(data);
+  // console.log(data);
   const getClass = (dataType) => {
     switch (dataType) {
       case "contacts":
