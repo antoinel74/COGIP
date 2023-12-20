@@ -1,19 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { allCompanies } from "../helpers/api/allCompanies";
 import { postNewCompany, postNewContact, postNewInvoice } from "../helpers/api/postData";
 import { FormField } from "./FormField";
-import { fetchAllDatas } from "../helpers/api/fetchAllDatas";
+import { fetchAllDatas, fetchEveryCompanies } from "../helpers/api/fetchAllDatas";
 
 export const Form = ({ formType }) => {
-  const { allCompaniesDetails, fetchAllCompanies } = allCompanies();
-
-  useEffect(() => {
-    if (formType !== "company") {
-      fetchAllCompanies();
-    }
-  }, [formType, fetchAllCompanies]);
-  /*   console.log(allCompaniesDetails); */
-
   const [companyOptions, setCompanyOptions] = useState([]);
 
   useEffect(() => {
@@ -23,11 +13,12 @@ export const Form = ({ formType }) => {
         const fetchedOptions = fetchedData.data || [];
         setCompanyOptions(fetchedOptions);
       } else {
-        setCompanyOptions(allCompaniesDetails?.companies || []);
+        const fetchedCompanies = await fetchEveryCompanies();
+        setCompanyOptions(fetchedCompanies.data || []);
       }
     };
     fetchDataForSelect();
-  }, [formType, allCompaniesDetails]);
+  }, [formType]);
   /*   console.log(companyOptions); */
 
   const [formInputs, setFormInputs] = useState({

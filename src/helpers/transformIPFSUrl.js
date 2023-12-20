@@ -9,7 +9,6 @@ export function transformIPFSUrl(originalUrl) {
     const transformedUrl = prefixReplacement + hashAndPath;
     return transformedUrl;
   } else {
-    console.error("Avatar URL is not IPFS");
     return originalUrl;
   }
 }
