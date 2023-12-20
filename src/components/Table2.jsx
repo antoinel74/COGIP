@@ -41,6 +41,7 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
   const [page, setPage] = useState(1);
   const [refresh, setRefresh] = useState(false);
   const [companies, setCompanies] = useState([]);
+  const [values, setValues] = useState({});
 
   const toggleRefresh = () => setRefresh(!refresh);
 
@@ -94,6 +95,29 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
     toggleRefresh();
   };
 
+
+
+  const handleChange = (id, key, value) => {
+    const newKey = key === 'company_name' ? 'id_company' : key;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [id]: {
+        ...(prevValues[id] || {}),
+        [newKey]: value,
+      },
+    }));
+  };
+const handleSubmit = (id, e) => {
+  console.log("handleSubmit called");
+  const newValue = values[id];
+  if (newValue) {
+    editDatas(dataType, id, newValue)
+    .then(() => {
+      toggleRefresh();
+    });
+  }
+};
+
   return (
     <div
       className={`overflow-x-auto ${
@@ -112,89 +136,141 @@ export const Table2 = ({ pageType, dataType, data: dataProp }) => {
         {pageType === "show" && <Searchbar />}
       </div>
 
-      <table className="min-w-full table-fixed">
-        <thead
-          className={
-            pageType === "application" ||
-            pageType === "show" ||
-            pageType === "company"
-              ? "bg-[#f9de4e]"
-              : ""
-          }
-        >
-          <tr>
-            {headers.map((header) => (
-              <th
-                key={header}
-                scope="col"
-                className="py-3 px-6 text-xs font-bold tracking-wider text-left text-gray-900 uppercase"
-              >
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        {loading ? (
-          <Loader />
-        ) : (
-          <tbody>
-            {data.map((item, index) => (
-              <tr
-                key={item.id}
-                className={
-                  pageType === "application" ||
-                  pageType === "show" ||
-                  pageType === "company"
-                    ? index % 2 === 1
-                      ? "bg-gray-200"
-                      : ""
-                    : ""
-                }
-              >
-                {dataKeys.map((key) => (
-                  <td
-                    key={key}
-                    className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap"
+      {pageType === "admin_panel" ? (
+          <table className="min-w-full table-fixed">
+            <thead>
+              <tr>
+                {headers.map((header) => (
+                  <th
+                    key={header}
+                    scope="col"
+                    className="py-3 text-xs font-bold tracking-wider text-left text-gray-900 uppercase"
                   >
-                    {pageType === "admin_panel" &&
-                    (dataType === "contacts" ||
-                      dataType === "companies" ||
-                      (dataType === "invoices" && key === "ref")) ? (
-                      <input type="text" defaultValue={item[key]} />
-                    ) : pageType === "admin_panel" && dataType === "invoices" && key === "company_name" ? (
-                      <select name="company" id="" value={companies.find(company => company.name === item[key])?.id || ''}>
-                        {companies.map((company) => (
-                          <option key={company.id} value={company.id}>
-                            {company.name}
-                          </option>
-                        ))}
-                      </select>
-                    ) : dataType === "companies" && key === "name" ? (
-                      <Link to={`/companies/${item.id}`}>{item[key]}</Link>
-                    ) : (dataType === "contacts" || dataType === "invoices") &&
-                      key === "company_name" ? (
-                      <Link to={`/companies/${item.id_company}`}>
-                        {item[key]}
-                      </Link>
-                    ) : dataType === "contacts" && key === "name" ? (
-                      <Link to={`/contacts/${item.id}`}>{item[key]}</Link>
-                    ) : (
-                      item[key]
-                    )}
-                  </td>
+                    {header}
+                  </th>
                 ))}
-                {pageType === "admin_panel" && (
-                  <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
-                    <button onClick={() => handleDelete(dataType, item.id)}>
-                      X
-                    </button>
-                  </td>
-                )}
               </tr>
-            ))}
-          </tbody>
-        )}
-      </table>
+            </thead>
+            {loading ? (
+              <Loader />
+            ) : (
+              <tbody>
+                {data.map((item, index) => (
+                  <tr key={item.id}>
+                    {dataKeys.map((key) => (
+                      <td
+                        key={key}
+                        className="py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                      >
+                        {dataType === "contacts" ||
+                        dataType === "companies" ||
+                        (dataType === "invoices" && key === "ref") ? (
+                          <input
+                            type="text"
+                            id={`input-${item.id}-${key}`}
+                            defaultValue={item[key]}
+                            onChange={(e) => handleChange(item.id, key, e.target.value)}
+                          />
+                        ) : dataType === "invoices" &&
+                          key === "company_name" ? (
+                          <select
+                            name="company"
+                            id={`select-${item.id}-${key}`}
+                            defaultValue={
+                              companies.find(
+                                (company) => company.name === item[key]
+                              )?.id || ""
+                            }
+                            onChange={(e) => handleChange(item.id, key, e.target.value)}
+                          >
+                            {companies.map((company) => (
+                              <option key={company.id} value={company.id}>
+                                {company.name}
+                              </option>
+                            ))}
+                          </select>
+                        ) : (
+                          item[key]
+                        )}
+                      </td>
+                    ))}
+                    <td className="py-4 text-sm font-medium text-gray-900 whitespace-nowrap">
+                    <button onClick={() => handleSubmit(item.id)}>Edit</button>
+                      <button onClick={() => handleDelete(dataType, item.id)}>
+                        X
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            )}
+          </table>
+      ) : (
+        <table className="min-w-full table-fixed">
+          <thead
+            className={
+              pageType === "application" ||
+              pageType === "show" ||
+              pageType === "company"
+                ? "bg-[#f9de4e]"
+                : ""
+            }
+          >
+            <tr>
+              {headers.map((header) => (
+                <th
+                  key={header}
+                  scope="col"
+                  className="py-3 text-xs font-bold tracking-wider text-left text-gray-900 uppercase"
+                >
+                  {header}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          {loading ? (
+            <Loader />
+          ) : (
+            <tbody>
+              {data.map((item, index) => (
+                <tr
+                  key={item.id}
+                  className={
+                    pageType === "application" ||
+                    pageType === "show" ||
+                    pageType === "company"
+                      ? index % 2 === 1
+                        ? "bg-gray-200"
+                        : ""
+                      : ""
+                  }
+                >
+                  {dataKeys.map((key) => (
+                    <td
+                      key={key}
+                      className="py-4 text-sm font-medium text-gray-900 whitespace-nowrap"
+                    >
+                      {dataType === "companies" && key === "name" ? (
+                        <Link to={`/companies/${item.id}`}>{item[key]}</Link>
+                      ) : (dataType === "contacts" ||
+                          dataType === "invoices") &&
+                        key === "company_name" ? (
+                        <Link to={`/companies/${item.id_company}`}>
+                          {item[key]}
+                        </Link>
+                      ) : dataType === "contacts" && key === "name" ? (
+                        <Link to={`/contacts/${item.id}`}>{item[key]}</Link>
+                      ) : (
+                        item[key]
+                      )}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          )}
+        </table>
+      )}
       {pageType === "show" && (
         <div className="flex justify-center items-center">
           <button
