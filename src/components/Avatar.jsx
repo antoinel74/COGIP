@@ -5,7 +5,7 @@ import { getAvatar } from "../helpers/api/fetchAvatar";
  * @param {string} name  the name of the contact/user/...
  * @returns {Avatar}
  */
-const Avatar = ({ name, width, height }) => {
+export const Avatar = ({ name, width, height }) => {
   const [avatar, setAvatar] = useState(null);
 
   useEffect(() => {
@@ -24,4 +24,3 @@ const Avatar = ({ name, width, height }) => {
   );
 };
 
-export default Avatar;

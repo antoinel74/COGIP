@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "./Avatar";
+import { Avatar } from "./Avatar";
 import { Link, useLocation } from "react-router-dom";
 
 const NavbarItem = ({ link, text, icon }) => {
@@ -21,7 +21,7 @@ const NavbarItem = ({ link, text, icon }) => {
 
 const ProfileSection = () => (
   <div className="flex flex-col items-center border-b border-gray-200 py-6 my-4 md:my-8">
-    <Avatar name="Henry" width="w-8 md:w-12" height="h-8 md:h-12" />
+    <Avatar name="desanuser" width="w-8 md:w-12" height="h-8 md:h-12" />
     <h3 className="flex flex-col text-2xl py-4 text-center font-bold hidden md:block">
       <span>Henry </span>
       <span className="block -mt-2">Georges</span>
@@ -31,7 +31,7 @@ const ProfileSection = () => (
 
 const FooterSection = () => (
   <div className="mt-auto border-t border-gray-200 flex justify-between p-2">
-    <Avatar name="Henry" width="w-6" height="h-6 hidden md:block" />
+    <Avatar name="desanuser" width="w-6" height="h-6 hidden md:block" />
     <Link to="/" className="text-[#9798d6]">
       Log out
     </Link>
